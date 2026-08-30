@@ -19,7 +19,7 @@
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px;
+            padding: 20px 20px 80px 20px; /* Większy margines na dole na wodę */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -27,11 +27,66 @@
             border: 4px solid var(--neon-blue);
             box-sizing: border-box;
             box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* CYFROWE DRZEWA PO BOKACH */
+        .neon-tree {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--neon-green);
+            font-size: 1.8rem;
+            line-height: 1.1;
+            white-space: pre;
+            text-shadow: 0 0 10px var(--neon-green), 0 0 20px rgba(57, 255, 20, 0.5);
+            user-select: none;
+            pointer-events: none;
+            opacity: 0.25; /* Subtelne tło, nie zasłania tekstu */
+            z-index: 1;
+        }
+
+        .tree-left { left: 4%; text-align: left; }
+        .tree-right { right: 4%; text-align: right; }
+
+        /* CYBERNETYCZNA WODA NA DOLE */
+        .cyber-water {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(transparent, rgba(0, 240, 255, 0.15));
+            border-top: 2px dashed var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+            z-index: 2;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .water-waves {
+            color: var(--neon-blue);
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            text-shadow: 0 0 8px var(--neon-blue);
+            white-space: nowrap;
+            animation: wave-move 4s linear infinite;
+        }
+
+        @keyframes wave-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-40px); }
         }
 
         .header {
             text-align: center;
             margin-top: 40px;
+            position: relative;
+            z-index: 5;
         }
 
         h1 {
@@ -57,10 +112,12 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+            position: relative;
+            z-index: 5;
         }
 
         .terminal-box {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             border: 2px solid var(--neon-blue); 
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); 
             padding: 20px;
@@ -154,7 +211,6 @@
             }, 1200);
         }
 
-        // Funkcje obsługi lokalnego notatnika
         function saveNotes() {
             const noteText = document.getElementById('cyber-notes').value;
             localStorage.setItem('error_killer_notes', noteText);
@@ -172,6 +228,43 @@
     </script>
 </head>
 <body>
+
+    <!-- DRZEWA Z MATRYCY SYMBOLI -->
+    <div class="neon-tree tree-left">
+     /\
+    /  \
+   /++++\
+  /++++++\
+  /++++++\
+    ||||
+    ||||
+    ||||
+    /\
+   /  \
+  /++++\
+    ||
+    ```
+    </div>
+    <div class="neon-tree tree-right">
+     /\
+    /  \
+   /++++\
+  /++++++\
+  /++++++\
+    ||||
+    ||||
+    ||||
+    /\
+   /  \
+  /++++\
+    ||
+    ```
+    </div>
+
+    <!-- SPECJALNA WARSTWA CYBER WODY -->
+    <div class="cyber-water">
+        <div class="water-waves">~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~</div>
+    </div>
 
     <div class="header">
         <h1>ErrorKillerMole69</h1>
@@ -202,34 +295,12 @@
             <div id="ai-status" class="status-output"></div>
         </div>
 
-        <!-- 2. SEKCJA: GRAFIKI -->
+        <!-- 2. SEKCJA: ART & GRAPHICS -->
         <div class="terminal-box">
-         <h2 class="section-title">// 02. ART & GRAPHICS</h2>
+            <h2 class="section-title">// 02. ART & GRAPHICS</h2>
             <p>Visual repository holding digital assets, metal-punk vector art, UI mockups, and layout structures.</p>
             <button class="punk-btn" onclick="launchSystem('art-status', 'GRAPHICS ENGINE MOUNTED. Canvas ready for rendering.')">LOAD GRAPHICS</button>
             <div id="art-status" class="status-output"></div>
         </div>
 
-        <!-- 3. SEKCJA: STRONY INTERNETOWE -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
-            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
-            <button class="punk-btn" onclick="launchSystem('web-status', 'NETWORK SCAN COMPLETE. All local web hosts responding.')">INITIALIZE WEB PORTALS</button>
-            <div id="web-status" class="status-output"></div>
-        </div>
-
-        <!-- 4. SEKCJA: BAZA WIEDZY & NOTATNIK -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
-            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
-            <textarea id="cyber-notes" class="cyber-textarea" placeholder="[AWAITING INPUT...] Wpisz swoje notatki ze słuzby lub plany na wyjazd do L.A. tutaj..."></textarea>
-            <br>
-            <button class="punk-btn" onclick="saveNotes()">SAVE TO MEMORY</button>
-            <div id="notes-status" class="status-output"></div>
-        </div>
-
-    </div>
-
-</body>
-</html>
 
