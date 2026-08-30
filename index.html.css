@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ErrorKillerMole69 // Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0d0c1d;
+            --neon-blue: #00f0ff;
+            --neon-purple: #ff00ff;
+            --text-color: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            border: 4px solid var(--neon-purple);
+            box-sizing: border-box;
+            box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            color: var(--neon-purple);
+            font-size: 1.2rem;
+            text-shadow: 0 0 5px var(--neon-purple);
+            font-weight: bold;
+        }
+
+        .terminal-box {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+
+        .tech-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .tech-item {
+            background: rgba(255, 0, 255, 0.05);
+            border: 1px solid var(--neon-purple);
+            padding: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .tech-item:hover {
+            background: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 10px var(--neon-blue);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>ErrorKillerMole69</h1>
+        <div class="subtitle">> MULTI-DISCIPLINARY ARTIST & SENIOR DEV</div>
+    </div>
+
+    <div class="terminal-box">
+        <p style="color: var(--neon-blue)">[SYSTEM STATUS: READY TO WORK]</p>
+        <p>I build autonomous AI agents, optimize big data, and design heavy, raw metal-cyber aesthetics. Over 5 years of breaking systems and rebuilding them stronger.</p>
+        
+        <p style="margin-top: 20px; color: var(--neon-purple)">// TECH STACK & TOOLS:</p>
+        <div class="tech-stack">
+            <div class="tech-item">🐍 Python</div>
+            <div class="tech-item">🌐 Selenium</div>
+            <div class="tech-item">🟨 JavaScript</div>
+            <div class="tech-item">💜 Kotlin</div>
+            <div class="tech-item">🔥 Spark</div>
+            <div class="tech-item">⚛️ React</div>
+            <div class="tech-item">🔍 BigQuery</div>
+            <div class="tech-item">🔴 Scala</div>
+            <div class="tech-item">📐 Figma</div>
+            <div class="tech-item">🤖 AI Agents</div>
+        </div>
+    </div>
+
+</body>
+</html>
