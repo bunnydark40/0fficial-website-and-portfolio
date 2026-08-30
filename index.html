@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +7,15 @@
     <title>ErrorKillerMole69 // Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d0c1d;
-            --neon-blue: #00f0ff;
-            --neon-purple: #ff00ff;
+            --bg-gradient-start: #2b0414; /* Ciemne bordo */
+            --bg-gradient-end: #12021c;   /* Głęboki fiolet */
+            --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
             --text-color: #e2e8f0;
+            --btn-bg: #052e16;            /* Ciemnozielony przycisk */
         }
 
         body {
-            background-color: var(--bg-color);
+            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
@@ -22,9 +24,9 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            border: 4px solid var(--neon-purple);
+            border: 4px solid var(--neon-blue); /* Jasnoniebieska ramka */
             box-sizing: border-box;
-            box-shadow: inset 0 0 20px rgba(255, 0, 255, 0.2);
+            box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
         }
 
         .header {
@@ -42,21 +44,47 @@
         }
 
         .subtitle {
-            color: var(--neon-purple);
+            color: #ff00ff;
             font-size: 1.2rem;
-            text-shadow: 0 0 5px var(--neon-purple);
+            text-shadow: 0 0 5px #ff00ff;
             font-weight: bold;
         }
 
         .terminal-box {
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.3);
+            background: rgba(0, 0, 0, 0.75);
+            border: 3px solid var(--neon-blue); 
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); 
             padding: 20px;
             max-width: 600px;
             width: 100%;
             margin-top: 30px;
             border-radius: 5px;
+        }
+
+        .punk-btn {
+            background-color: var(--btn-bg);
+            color: var(--neon-blue);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border: 2px solid var(--neon-blue);
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+            text-shadow: 0 0 8px var(--neon-blue);
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .punk-btn:hover {
+            background-color: var(--neon-blue);
+            color: #000;
+            box-shadow: 0 0 25px var(--neon-blue);
+            text-shadow: none;
+            transform: scale(1.05);
         }
 
         .tech-stack {
@@ -67,8 +95,8 @@
         }
 
         .tech-item {
-            background: rgba(255, 0, 255, 0.05);
-            border: 1px solid var(--neon-purple);
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-blue);
             padding: 8px;
             text-align: center;
             font-size: 0.9rem;
@@ -94,7 +122,7 @@
         <p style="color: var(--neon-blue)">[SYSTEM STATUS: READY TO WORK]</p>
         <p>I build autonomous AI agents, optimize big data, and design heavy, raw metal-cyber aesthetics. Over 5 years of breaking systems and rebuilding them stronger.</p>
         
-        <p style="margin-top: 20px; color: var(--neon-purple)">// TECH STACK & TOOLS:</p>
+        <p style="margin-top: 20px; color: #ff00ff">// TECH STACK & TOOLS:</p>
         <div class="tech-stack">
             <div class="tech-item">🐍 Python</div>
             <div class="tech-item">🌐 Selenium</div>
@@ -106,6 +134,10 @@
             <div class="tech-item">🔴 Scala</div>
             <div class="tech-item">📐 Figma</div>
             <div class="tech-item">🤖 AI Agents</div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="punk-btn">CLICK HERE</button>
         </div>
     </div>
 
