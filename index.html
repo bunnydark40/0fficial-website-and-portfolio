@@ -50,7 +50,6 @@
             font-weight: bold;
         }
 
-        /* Glówny kontener na sekcje */
         .container {
             max-width: 800px;
             width: 100%;
@@ -75,7 +74,6 @@
             font-size: 1.3rem;
         }
 
-        /* Przyciski z zielonym neonem */
         .punk-btn {
             background-color: var(--btn-bg);
             color: var(--neon-green);
@@ -101,7 +99,6 @@
             transform: scale(1.02);
         }
 
-        /* Ekran ładowania statusu */
         .status-output {
             margin-top: 15px;
             padding: 10px;
@@ -109,7 +106,26 @@
             border-left: 3px solid var(--neon-green);
             font-size: 0.9rem;
             color: #a7f3d0;
-            display: none; /* Ukryte na start */
+            display: none;
+        }
+
+        .cyber-textarea {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 10, 5, 0.8);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-top: 15px;
+            resize: vertical;
+            outline: none;
+            box-shadow: 0 0 5px rgba(57, 255, 20, 0.2);
+        }
+
+        .cyber-textarea:focus {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
         }
 
         .tech-stack {
@@ -128,7 +144,6 @@
         }
     </style>
     <script>
-        // Funkcja symulująca ładowanie systemu w terminalu
         function launchSystem(sectionId, message) {
             const output = document.getElementById(sectionId);
             output.style.display = "block";
@@ -137,6 +152,22 @@
             setTimeout(() => {
                 output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Awaiting file uploads...</span>`;
             }, 1200);
+        }
+
+        // Funkcje obsługi lokalnego notatnika
+        function saveNotes() {
+            const noteText = document.getElementById('cyber-notes').value;
+            localStorage.setItem('error_killer_notes', noteText);
+            const status = document.getElementById('notes-status');
+            status.style.display = "block";
+            status.innerHTML = "<span style='color:#00f0ff'>[SYSTEM LOG] Data written to local cache successfully.</span>";
+        }
+
+        window.onload = function() {
+            const savedData = localStorage.getItem('error_killer_notes');
+            if(savedData && document.getElementById('cyber-notes')) {
+                document.getElementById('cyber-notes').value = savedData;
+            }
         }
     </script>
 </head>
@@ -187,11 +218,13 @@
             <div id="web-status" class="status-output"></div>
         </div>
 
-        <!-- 4. SEKCJA: BAZA WIEDZY -->
+        <!-- 4. SEKCJA: BAZA WIEDZY & NOTATNIK -->
         <div class="terminal-box">
             <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
             <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
-            <button class="punk-btn" onclick="launchSystem('notes-status', 'DECRYPTING ARCHIVES... Knowledge database open.')">ACCESS NOTES</button>
+            <textarea id="cyber-notes" class="cyber-textarea" placeholder="[AWAITING INPUT...] Wpisz swoje notatki ze słuzby lub plany na wyjazd do L.A. tutaj..."></textarea>
+            <br>
+            <button class="punk-btn" onclick="saveNotes()">SAVE TO MEMORY</button>
             <div id="notes-status" class="status-output"></div>
         </div>
 
