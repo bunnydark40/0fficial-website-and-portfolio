@@ -19,7 +19,7 @@
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px 20px 80px 20px; /* Większy margines na dole na wodę */
+            padding: 20px 20px 80px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -31,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* CYFROWE DRZEWA PO BOKACH */
         .neon-tree {
             position: fixed;
             top: 50%;
@@ -43,15 +42,13 @@
             text-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green);
             user-select: none;
             pointer-events: none;
-          opacity: 1;
-
+            opacity: 1;
             z-index: 1;
         }
 
         .tree-left { left: 4%; text-align: left; }
         .tree-right { right: 4%; text-align: right; }
 
-        /* CYBERNETYCZNA WODA NA DOLE */
         .cyber-water {
             position: fixed;
             bottom: 0;
@@ -147,6 +144,8 @@
             box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
             text-shadow: 0 0 5px var(--neon-green);
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .punk-btn:hover {
@@ -208,7 +207,7 @@
             output.innerHTML = "[INITIALIZING...] <br> [LOADING CORE MODULES...] <br> [CONNECTING TO DARKNET...]";
             
             setTimeout(() => {
-                output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Awaiting file uploads...</span>`;
+                output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Node online.</span>`;
             }, 1200);
         }
 
@@ -230,7 +229,6 @@
 </head>
 <body>
 
-    <!-- DRZEWA Z MATRYCY SYMBOLI -->
     <div class="neon-tree tree-left">
      /\
     /  \
@@ -262,7 +260,6 @@
     ```
     </div>
 
-    <!-- SPECJALNA WARSTWA CYBER WODY -->
     <div class="cyber-water">
         <div class="water-waves">~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~</div>
     </div>
@@ -274,7 +271,6 @@
 
     <div class="container">
         
-        <!-- SEKCJA GŁÓWNA / SKILLS -->
         <div class="terminal-box">
             <p style="color: var(--neon-blue); margin-top:0;">[SYSTEM STATUS: READY TO WORK]</p>
             <p>I build autonomous AI agents, optimize big data, and design heavy, raw metal-cyber aesthetics. Over 5 years of breaking systems and rebuilding them stronger.</p>
@@ -296,12 +292,71 @@
             <div id="ai-status" class="status-output"></div>
         </div>
 
-        <!-- 2. SEKCJA: ART & GRAPHICS -->
+        <!-- 2. SEKCJA: ART & GRAPHICS (Z LINKIEM DO BEHANCE) -->
         <div class="terminal-box">
             <h2 class="section-title">// 02. ART & GRAPHICS</h2>
             <p>Visual repository holding digital assets, metal-punk vector art, UI mockups, and layout structures.</p>
-            <button class="punk-btn" onclick="launchSystem('art-status', 'GRAPHICS ENGINE MOUNTED. Canvas ready for rendering.')">LOAD GRAPHICS</button>
+            <!-- Zamiast button, uzywamy <a> zrobionego na przycisk -->
+            <a href="https://behance.net" target="_blank" class="punk-btn" onclick="launchSystem('art-status', 'REDIRECTING TO BEHANCE DATA NODE...')">LOAD GRAPHICS</a>
             <div id="art-status" class="status-output"></div>
         </div>
 
+        <!-- 3. SEKCJA: STRONY INTERNETOWE -->
+        <div class="terminal-box">
 
+                <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
+            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
+            <button class="punk-btn" onclick="launchSystem('web-status', 'NETWORK SCAN COMPLETE. All local web hosts responding.')">INITIALIZE WEB PORTALS</button>
+            <div id="web-status" class="status-output"></div>
+        </div>
+
+        <!-- 4. SEKCJA: BAZA WIEDZY & NOTATNIK -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
+            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
+            <textarea id="cyber-notes" class="cyber-textarea" placeholder="[AWAITING INPUT...] Wpisz swoje notatki ze sluzby lub plany na wyjazd do L.A. tutaj..."></textarea>
+            <br>
+            <button class="punk-btn" onclick="saveNotes()">SAVE TO MEMORY</button>
+            <div id="notes-status" class="status-output"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
