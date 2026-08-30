@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +9,7 @@
             --bg-gradient-start: #2b0414; /* Ciemne bordo */
             --bg-gradient-end: #12021c;   /* Głęboki fiolet */
             --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
+            --neon-green: #39ff14;        /* Jasnozielone światło */
             --text-color: #e2e8f0;
             --btn-bg: #052e16;            /* Ciemnozielony przycisk */
         }
@@ -24,7 +24,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            border: 4px solid var(--neon-blue); /* Jasnoniebieska ramka */
+            border: 4px solid var(--neon-blue);
             box-sizing: border-box;
             box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
         }
@@ -44,54 +44,79 @@
         }
 
         .subtitle {
-            color: #ff00ff;
+            color: var(--neon-green);
             font-size: 1.2rem;
-            text-shadow: 0 0 5px #ff00ff;
+            text-shadow: 0 0 8px var(--neon-green);
             font-weight: bold;
+        }
+
+        /* Glówny kontener na sekcje */
+        .container {
+            max-width: 800px;
+            width: 100%;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
         }
 
         .terminal-box {
-            background: rgba(0, 0, 0, 0.75);
-            border: 3px solid var(--neon-blue); 
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.5); 
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid var(--neon-blue); 
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); 
             padding: 20px;
-            max-width: 600px;
-            width: 100%;
-            margin-top: 30px;
             border-radius: 5px;
         }
 
+        .section-title {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Przyciski z zielonym neonem */
         .punk-btn {
             background-color: var(--btn-bg);
-            color: var(--neon-blue);
+            color: var(--neon-green);
             font-family: 'Courier New', Courier, monospace;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
-            padding: 12px 24px;
-            margin-top: 20px;
-            border: 2px solid var(--neon-blue);
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: 2px solid var(--neon-green);
             border-radius: 4px;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-            text-shadow: 0 0 8px var(--neon-blue);
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+            text-shadow: 0 0 5px var(--neon-green);
             transition: all 0.3s ease;
-            display: inline-block;
         }
 
         .punk-btn:hover {
-            background-color: var(--neon-blue);
+            background-color: var(--neon-green);
             color: #000;
-            box-shadow: 0 0 25px var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-green);
             text-shadow: none;
-            transform: scale(1.05);
+            transform: scale(1.02);
+        }
+
+        /* Ekran ładowania statusu */
+        .status-output {
+            margin-top: 15px;
+            padding: 10px;
+            background: rgba(0, 20, 0, 0.4);
+            border-left: 3px solid var(--neon-green);
+            font-size: 0.9rem;
+            color: #a7f3d0;
+            display: none; /* Ukryte na start */
         }
 
         .tech-stack {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .tech-item {
@@ -100,16 +125,20 @@
             padding: 8px;
             text-align: center;
             font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .tech-item:hover {
-            background: var(--neon-blue);
-            color: #000;
-            box-shadow: 0 0 10px var(--neon-blue);
-            cursor: pointer;
         }
     </style>
+    <script>
+        // Funkcja symulująca ładowanie systemu w terminalu
+        function launchSystem(sectionId, message) {
+            const output = document.getElementById(sectionId);
+            output.style.display = "block";
+            output.innerHTML = "[INITIALIZING...] <br> [LOADING CORE MODULES...] <br> [CONNECTING TO DARKNET...]";
+            
+            setTimeout(() => {
+                output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Awaiting file uploads...</span>`;
+            }, 1200);
+        }
+    </script>
 </head>
 <body>
 
@@ -118,28 +147,56 @@
         <div class="subtitle">> MULTI-DISCIPLINARY ARTIST & SENIOR DEV</div>
     </div>
 
-    <div class="terminal-box">
-        <p style="color: var(--neon-blue)">[SYSTEM STATUS: READY TO WORK]</p>
-        <p>I build autonomous AI agents, optimize big data, and design heavy, raw metal-cyber aesthetics. Over 5 years of breaking systems and rebuilding them stronger.</p>
+    <div class="container">
         
-        <p style="margin-top: 20px; color: #ff00ff">// TECH STACK & TOOLS:</p>
-        <div class="tech-stack">
-            <div class="tech-item">🐍 Python</div>
-            <div class="tech-item">🌐 Selenium</div>
-            <div class="tech-item">🟨 JavaScript</div>
-            <div class="tech-item">💜 Kotlin</div>
-            <div class="tech-item">🔥 Spark</div>
-            <div class="tech-item">⚛️ React</div>
-            <div class="tech-item">🔍 BigQuery</div>
-            <div class="tech-item">🔴 Scala</div>
-            <div class="tech-item">📐 Figma</div>
-            <div class="tech-item">🤖 AI Agents</div>
+        <!-- SEKCJA GŁÓWNA / SKILLS -->
+        <div class="terminal-box">
+            <p style="color: var(--neon-blue); margin-top:0;">[SYSTEM STATUS: READY TO WORK]</p>
+            <p>I build autonomous AI agents, optimize big data, and design heavy, raw metal-cyber aesthetics. Over 5 years of breaking systems and rebuilding them stronger.</p>
+            <div class="tech-stack">
+                <div class="tech-item">🐍 Python</div>
+                <div class="tech-item">🌐 Selenium</div>
+                <div class="tech-item">🟨 JavaScript</div>
+                <div class="tech-item">💜 Kotlin</div>
+                <div class="tech-item">🔥 Spark</div>
+                <div class="tech-item">⚛️ React</div>
+            </div>
         </div>
 
-        <div style="text-align: center;">
-            <button class="punk-btn">CLICK HERE</button>
+        <!-- 1. SEKCJA: AGENCI AI -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
+            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
+            <button class="punk-btn" onclick="launchSystem('ai-status', 'AI CORE ONLINE. 3 Agents running in background.')">RUN AI AGENTS</button>
+            <div id="ai-status" class="status-output"></div>
         </div>
+
+        <!-- 2. SEKCJA: GRAFIKI -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 02. CYBERPUNK ART & GRAPHICS</h2>
+            <p>Visual repository holding digital assets, metal-punk vector art, UI mockups, and layout structures.</p>
+            <button class="punk-btn" onclick="launchSystem('art-status', 'GRAPHICS ENGINE MOUNTED. Canvas ready for rendering.')">LOAD GRAPHICS</button>
+            <div id="art-status" class="status-output"></div>
+        </div>
+
+        <!-- 3. SEKCJA: STRONY INTERNETOWE -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
+            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
+            <button class="punk-btn" onclick="launchSystem('web-status', 'NETWORK SCAN COMPLETE. All local web hosts responding.')">INITIALIZE WEB PORTALS</button>
+            <div id="web-status" class="status-output"></div>
+        </div>
+
+        <!-- 4. SEKCJA: BAZA WIEDZY -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
+            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
+            <button class="punk-btn" onclick="launchSystem('notes-status', 'DECRYPTING ARCHIVES... Knowledge database open.')">ACCESS NOTES</button>
+            <div id="notes-status" class="status-output"></div>
+        </div>
+
     </div>
 
 </body>
 </html>
+
