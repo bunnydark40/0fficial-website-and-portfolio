@@ -20,7 +20,7 @@
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px 20px 80px 20px;
+            padding: 20px 20px 120px 20px; /* Większy margines na dole na scrollowanie */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,6 +30,7 @@
             box-shadow: inset 0 0 40px rgba(0, 240, 255, 0.5);
             position: relative;
             overflow-x: hidden;
+            overflow-y: auto; /* Włączenie przewijania, aby dół strony był dostępny */
         }
 
         /* --- DRZEWA NEONOWE --- */
@@ -44,6 +45,7 @@
             z-index: 1;
             font-size: 1rem;
             font-weight: bold;
+            pointer-events: none;
         }
 
         .tree-left { left: 2%; text-align: left; }
@@ -324,4 +326,6 @@
             <div class="skill-line"><span style="color: #a855f7;">💜 Kotlin:</span> 📱 (Mobilne/Android)</div>
             <div class="skill-line"><span style="color: #f97316;">🔥 Spark:</span> (fire) | ⚡ (Fast processing) | 📊</div>
             <div class="skill-line"><span style="color: #06b6d4;">⚛️ React:</span> (Atom/React logo) | 💻 (Frontend)</div>
-            <div class="skill-line"><span style="color: #3b82f6;">🔷 BigQuery:</span> 🗄️ (Database) | ☁️ (Chmura)</div>
+
+
+        
