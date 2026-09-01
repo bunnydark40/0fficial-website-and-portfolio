@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -30,7 +29,6 @@
             box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
             position: relative;
             overflow-x: hidden;
-            overflow-y: auto; /* Zapewnia przewijanie pionowe wszystkich sekcji */
         }
 
         /* --- DRZEWA NEONOWE (POPRAWIONE) --- */
@@ -158,7 +156,7 @@
             letter-spacing: 2px;
         }
 
-        /* --- SKILLE ORAZ SEKCJE TERMINALA --- */
+        /* --- SKILLE (KARTOTEKA Z TWOJEGO SCREENA) --- */
         .container {
             max-width: 800px;
             width: 100%;
@@ -180,67 +178,9 @@
             font-size: 0.95rem;
         }
 
-        .section-title {
-            color: var(--neon-green);
-            text-shadow: 0 0 5px var(--neon-green);
-            margin-top: 0;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
         .skill-line {
             margin-bottom: 8px;
             white-space: pre-wrap;
-        }
-
-        .punk-btn {
-            background-color: var(--btn-bg);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 10px 20px;
-            margin-top: 15px;
-            border: 2px solid var(--neon-green);
-            border-radius: 4px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-            text-shadow: 0 0 5px var(--neon-green);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .punk-btn:hover {
-            background-color: var(--neon-green);
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-green);
-            text-shadow: none;
-            transform: scale(1.02);
-        }
-
-        .status-output {
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(0, 20, 0, 0.4);
-            border-left: 3px solid var(--neon-green);
-            font-size: 0.9rem;
-            color: #a7f3d0;
-            display: none;
-        }
-
-        .cyber-textarea {
-            width: 100%;
-            height: 150px;
-            background: rgba(0, 10, 5, 0.8);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            padding: 10px;
-            box-sizing: border-box;
-            resize: none;
         }
     </style>
 </head>
@@ -293,10 +233,8 @@
         <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV PORTFOLIO</div>
     </div>
 
-    <!-- Kontener główny zawartości (Tutaj lądują wszystkie sekcje) -->
+    <!-- Twoje Skille odtworzone 1:1 ze screena -->
     <div class="container">
-        
-        <!-- Twoje Skille odtworzone 1:1 ze screena -->
         <div class="terminal-box">
             <div class="skill-line"><span style="color: #eab308;">🐍 Python + Selenium:</span> 💻 (Sieć/Browser) | 🤖 (Automation)</div>
             <div class="skill-line"><span style="color: #eab308;">🟨 JavaScript:</span> ⚡ (dynamics) | 🌐</div>
@@ -308,11 +246,87 @@
             <div class="skill-line"><span style="color: #ec4899;">📐 Figma:</span> 📐 (Projects) | 🎨</div>
             <div class="skill-line"><span style="color: #22c55e;">🤖 AI / Agents building skills:</span> 🧠 (mind) | 🤖 (Robot) | ⚙️ (Algorithms)</div>
             <hr style="border: 1px dashed var(--neon-blue); margin: 20px 0;">
+            <div class="skill-line"><span style="color: #14b8a6;">🎨 artistic painting acryle and not only (art/UI) and with 9 graphics programs / create websites.</span></div>
+            <div class="skill-line"><span style="color: #a855f7;">🎸 Music:</span> 🎵 (Guitar/Metal) | 🎹 (Keyboards) | singing | production</div>
+        </div>
+    </div>
 
-       
-       
+    <!-- Skrypt Animacji (1 minuta) -->
+    <script>
+        const duck = document.getElementById('duck');
+        const bear = document.getElementById('bear');
 
-      
+        function triggerDuckEvent() {
+            duck.classList.add('duck-flying');
 
-  
-        
+            setTimeout(() => {
+                bear.classList.add('bear-peek');
+            }, 3200);
+
+            setTimeout(() => {
+                duck.classList.remove('duck-flying');
+                setTimeout(() => {
+                    bear.classList.remove('bear-peek');
+                }, 3000);
+            }, 4000);
+        }
+
+        // Pierwszy start od razu po ładowaniu
+        triggerDuckEvent();
+        // Powtórka co minutę
+        setInterval(triggerDuckEvent, 60000);
+    </script>
+</body>
+</html>
+
+
+SEKCJE:
+
+
+
+     <!-- 1. SEKCJA: AGENCI AI -->
+          <!-- 1. SEKCJA: AGENCI AI -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
+            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
+            
+            <div style="margin-top: 15px;">
+                <p style="margin: 5px 0; color: #a7f3d0;"><strong>> AGENT 01: Instagram & Threads Automation</strong></p>
+                <a href="https://eu1.make.com/public/shared-scenario/OjUQPsfiNRT/agent-instagram-threads" target="_blank" class="punk-btn" style="margin-top: 5px;" onclick="launchSystem('ai-status', 'CONNECTING TO MAKE.COM NODE... LAUNCHING INSTAGRAM AGENT.')">RUN INSTAGRAM AGENT</a>
+            </div>
+
+            <div style="margin-top: 20px; border-top: 1px dashed rgba(0, 240, 255, 0.2); padding-top: 15px;">
+                <p style="margin: 5px 0; opacity: 0.6;"><strong>> AGENT 02: [SYSTEM LOCKED]</strong></p>
+                <button class="punk-btn" style="opacity: 0.5; cursor: not-allowed;" disabled>AWAITING DEPLOYMENT</button>
+            </div>
+
+            <div id="ai-status" class="status-output"></div>
+        </div>
+
+        </div>
+
+        <!-- 3. SEKCJA: STRONY INTERNETOWE -->
+        <div class="terminal-box">
+
+                <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
+            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
+            <button class="punk-btn" onclick="launchSystem('web-status', 'NETWORK SCAN COMPLETE. All local web hosts responding.')">INITIALIZE WEB PORTALS</button>
+            <div id="web-status" class="status-output"></div>
+        </div>
+
+        <!-- 4. SEKCJA: BAZA WIEDZY & NOTATNIK -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
+            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
+            <textarea id="cyber-notes" class="cyber-textarea" placeholder="[AWAITING INPUT...] Wpisz swoje notatki ze sluzby lub plany na wyjazd do L.A. tutaj..."></textarea>
+            <br>
+            <button class="punk-btn" onclick="saveNotes()">SAVE TO MEMORY</button>
+            <div id="notes-status" class="status-output"></div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
