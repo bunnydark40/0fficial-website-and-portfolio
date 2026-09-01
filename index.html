@@ -7,7 +7,6 @@
      
     <style>
         :root {
-            /* Rozjaśnione tło, aby strona nie była zbyt ciemna */
             --bg-gradient-start: #420620; /* Jaśniejsze bordo */
             --bg-gradient-end: #1f0430;   /* Jaśniejszy fiolet */
             --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
@@ -33,13 +32,13 @@
             overflow-x: hidden;
         }
 
-        /* --- DRZEWA NEONOWE (MAKSYMALNIE ROZJAŚNIONE) --- */
+        /* --- DRZEWA NEONOWE --- */
         .neon-tree {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
             color: var(--neon-green);
-            opacity: 1 !important; /* Pełna widoczność */
+            opacity: 1 !important;
             text-shadow: 0 0 12px var(--neon-green), 0 0 25px var(--neon-green), 0 0 35px var(--neon-green);
             white-space: pre;
             z-index: 1;
@@ -54,7 +53,7 @@
         .cyber-bear {
             position: fixed;
             top: 55%;
-            right: -120px; /* Schowany całkowicie za prawą krawędzią/drzewem */
+            right: -120px;
             color: #ffaa00;
             font-family: monospace;
             white-space: pre;
@@ -65,9 +64,8 @@
             pointer-events: none;
         }
 
-        /* Klasa aktywowana przez JavaScript co minutę po zderzeniu kaczki */
         .bear-peek {
-            right: 3%; /* Wychyla się zza prawego drzewa */
+            right: 3%;
         }
 
         /* --- CYFROWA KACZKA --- */
@@ -91,30 +89,10 @@
         }
 
         @keyframes duck-flight-path {
-            0% {
-                right: -150px;
-                transform: translateY(0) scaleX(1);
-            }
-            75% {
-                /* Dolatuje do lewego drzewa */
-                right: 88%;
-                transform: translateY(-20px) scaleX(1);
-            }
-            80% {
-                /* BUM! Uderzenie o lewe drzewo i zmiana koloru */
-                right: 88%;
-                transform: translateY(-20px) rotate(-45deg);
-                color: #ff0055; 
-                text-shadow: 0 0 20px #ff0055;
-            }
-            100% {
-                /* Spadek do wody */
-                right: 88%;
-                top: 85%;
-                transform: translateY(100px) rotate(-90deg);
-                opacity: 0;
-                color: #ff0055;
-            }
+            0% { right: -150px; transform: translateY(0) scaleX(1); }
+            75% { right: 88%; transform: translateY(-20px) scaleX(1); }
+            80% { right: 88%; transform: translateY(-20px) rotate(-45deg); color: #ff0055; text-shadow: 0 0 20px #ff0055; }
+            100% { right: 88%; top: 85%; transform: translateY(100px) rotate(-90deg); opacity: 0; color: #ff0055; }
         }
 
         /* --- CYBER WODA --- */
@@ -149,13 +127,13 @@
             100% { transform: translateX(-40px); }
         }
 
-        /* --- NAGŁÓWEK (REPARACJA ROZJECHANIA) --- */
+        /* --- NAGŁÓWEK --- */
         .header {
             text-align: center;
             margin-top: 40px;
             position: relative;
             z-index: 5;
-            max-width: 65%; /* Zapobiega nachodzeniu na drzewa */
+            max-width: 65%;
             width: 100%;
         }
 
@@ -181,7 +159,7 @@
             letter-spacing: 2px;
         }
 
-        /* --- KONTENER SKILLI I FORMULARZA --- */
+        /* --- KONTENER GŁÓWNY --- */
         .container {
             max-width: 700px;
             width: 100%;
@@ -194,7 +172,7 @@
         }
 
         .terminal-box {
-            background: rgba(0, 0, 0, 0.9); /* Bardziej wyraziste tło dla czytelności */
+            background: rgba(0, 0, 0, 0.9);
             border: 2px solid var(--neon-blue); 
             box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); 
             padding: 25px;
@@ -218,7 +196,7 @@
             white-space: pre-wrap;
         }
 
-        /* --- STYLIZACJA POLI FORMULARZA --- */
+        /* --- FORMULARZ --- */
         .form-group {
             margin-bottom: 15px;
             display: flex;
@@ -294,7 +272,7 @@
 </head>
 <body>
 
-    <!-- Drzewa ASCII (Rozjaśnione) -->
+    <!-- Drzewa ASCII -->
     <div class="neon-tree tree-left">
     /\
    /++\
@@ -315,7 +293,7 @@
    ||||
     </div>
 
-    <!-- Niedźwiedź (Ustawiony za prawym drzewem) -->
+    <!-- Niedźwiedź -->
     <div class="cyber-bear" id="bear">
  🐻
 [O.o]
@@ -335,5 +313,20 @@
         <div class="water-waves">~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~</div>
     </div>
 
-    <!-- Nagłówek (Naprawiony i wyśrodkowany) -->
+    <!-- Nagłówek -->
     <div class="header">
+        <h1>WELCOME TO MAGDA ERRORKILLERMOLE 69 WORKSPACE</h1>
+        <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV PORTFOLIO</div>
+    </div>
+
+    <!-- Kontener główny zawartości -->
+    <div class="container">
+        
+        <!-- Panel Technologii -->
+        <div class="terminal-box">
+            <h2 class="section-title">> SKILLS_INVENTORY</h2>
+            <div class="skill-line"><span style="color: #eab308;">🐍 Python + Selenium:</span> 💻 (Sieć/Browser) | 🤖 (Automation)</div>
+            <div class="skill-line"><span style="color: #eab308;">🟨 JavaScript:</span> ⚡ (dynamics) | 🌐</div>
+            <div class="skill-line"><span style="color: #a855f7;">💜 Kotlin:</span> 📱 (Mobilne/Android)</div>
+            <div class="skill-line"><span style="color: #f97316;">🔥 Spark:</span> (fire) | ⚡ (Fast processing) | 📊</div>
+
