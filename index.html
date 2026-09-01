@@ -810,5 +810,153 @@
             <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
             <textarea id="cyber-notes" class="cyber-textarea" placeholder="Enter root logs..."></textarea>
             <button class="punk-btn" onclick="saveNotes()">Commit to Cache</button>
- 
-       
+
+            <!-- SAM NIEDŹWIEDŹ BRUNATNY (wklej na samym dole przed </body>) -->
+<div class="character-brn-bear">
+    <div class="brn-bear-ears">
+        <span class="brn-ear-l"></span>
+        <span class="brn-ear-r"></span>
+    </div>
+    <div class="brn-bear-head">
+        <div class="brn-bear-eyes">
+            <span class="brn-eye-dot"></span>
+            <span class="brn-bear-eye-dot"></span>
+        </div>
+        <div class="brn-bear-muzzle">
+            <span class="brn-bear-nose"></span>
+        </div>
+    </div>
+    <div class="brn-bear-torso"></div>
+    <div class="brn-bear-feet">
+        <span class="brn-foot"></span>
+        <span class="brn-foot"></span>
+    </div>
+</div>
+
+<style>
+/* Odizolowane style, które nie dotykają Twoich istniejących klas */
+.character-brn-bear {
+    position: fixed;
+    bottom: 40px;
+    right: 60px; /* Pozycja startowa za Twoim drzewem */
+    width: 90px;
+    height: 220px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    pointer-events: none;
+    
+    /* Animacja wychylania w lewo i powrotu */
+    animation: sidePeekBear 8s ease-in-out infinite;
+}
+
+/* Uszy */
+.brn-bear-ears {
+    position: relative;
+    width: 75px;
+    height: 15px;
+}
+.brn-ear-l, .brn-ear-r {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: #3a2312; /* Ciemny brąz */
+    border-radius: 50%;
+}
+.brn-ear-l { left: 2px; }
+.brn-ear-r { right: 2px; }
+
+/* Głowa */
+.brn-bear-head {
+    width: 70px;
+    height: 60px;
+    background: #54351e; /* Brunatny */
+    border-radius: 46%;
+    position: relative;
+    z-index: 5;
+}
+.brn-bear-eyes {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 14px;
+    box-sizing: border-box;
+}
+.brn-eye-dot, .brn-bear-eye-dot {
+    width: 6px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+}
+.brn-bear-muzzle {
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 18px;
+    background: #7c5335; /* Jasny pysk */
+    border-radius: 50%;
+}
+.brn-bear-nose {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+}
+
+/* Stojący tułów */
+.brn-bear-torso {
+    width: 85px;
+    height: 130px;
+    background: #54351e;
+    border-radius: 42% 42% 15% 15%;
+    margin-top: -8px;
+    position: relative;
+    z-index: 4;
+}
+
+/* Dolne łapy stojącego niedźwiedzia */
+.brn-bear-feet {
+    position: relative;
+    width: 85px;
+    height: 20px;
+    margin-top: -5px;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px;
+    box-sizing: border-box;
+}
+.brn-foot {
+    width: 32px;
+    height: 20px;
+    background: #3a2312;
+    border-radius: 6px 6px 4px 4px;
+}
+
+/* Ruch: Wychylenie w lewo zza prawej krawędzi, zatrzymanie, powrót */
+@keyframes sidePeekBear {
+    0%, 100% {
+        transform: translateX(0); /* Całkowicie schowany za drzewem */
+    }
+    30% {
+        transform: translateX(-130px); /* Wychodzi w lewo całym ciałem */
+    }
+    65% {
+        transform: translateX(-130px); /* Stoi na widoku */
+    }
+    85% {
+        transform: translateX(0); /* Chowa się z powrotem */
+    }
+}
+</style>
+
+   </body>
