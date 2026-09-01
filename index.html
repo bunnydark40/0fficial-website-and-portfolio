@@ -228,9 +228,6 @@
 </head>
 <body>
 
-    <div class="neon-tree tree-left">
-         </div>
-
 
 <!-- Obiekt naszej kaczki ASCII -->
     <div id="matrix-duck" class="cyber-duck">
@@ -270,8 +267,7 @@
     <div class="cyber-water">
         <div class="water-waves">~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~</div>
     </div>
-   <div class="cyber-flying-duck">
-        <div class="cyber-flying-duck">
+>
    
        <!DOCTYPE html>
 <html lang="en">
@@ -526,6 +522,24 @@
    
     </div>
     <div class="neon-tree tree-right">
+
+     /\
+    /  \
+   /++++\
+  /++++++\
+  /++++++\
+    ||||
+    ||||
+    ||||
+   
+     /\
+    /  \
+   /++++\
+  /++++++\
+  /++++++\
+    ||||
+    ||||
+    ||||
    
 <!-- STRUKTURA HTML -->
 <div class="bear-animation-container">
@@ -681,6 +695,7 @@
 }
 .bear-paws .paw-l { left: 5px; }
 .bear-paws .paw-r { right: 5px; }
+    
 /* DRZEWO (Zasłona przednia) */
 .vector-tree {
     position: absolute;
@@ -688,7 +703,7 @@
     left: 130px;
     width: 140px;
     height: 320px;
-    z-index: 3; /* niedzwiedz ma wygladac zza drzewa */
+    z-index: 3; /* niedzwiedz ma wyplywać zza drzewa */
 }
 .tree-trunk {
     width: 30px;
@@ -720,14 +735,12 @@
         transform: translateX(110px) rotate(0deg);
     }
     80% {
-        /* Płynnie wraca i chowa się z powrotem */
+        /* Płynnie wraca i chowa się z powrotem za drzewo */
         transform: translateX(0);
     }
 }
 </style>
   
-    </div>
-
     <div class="cyber-water">
         <div class="water-waves">~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ </div>
     </div>
@@ -789,6 +802,9 @@
             <textarea id="cyber-notes" class="cyber-textarea" placeholder="Enter root logs..."></textarea>
             <button class="punk-btn" onclick="saveNotes()">Commit to Cache</button>
 
+         
+            
+            
             <!-- SAM NIEDŹWIEDŹ BRUNATNY (wklej na samym dole przed </body>) -->
 <div class="character-brn-bear">
     <div class="brn-bear-ears">
