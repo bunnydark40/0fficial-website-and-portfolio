@@ -13,8 +13,7 @@
             --text-color: #e2e8f0;        /* Neutralny */
             --btn-bg: #052e16;            /* Ciemnozielony przycisk */
         }
-
-        body {
+      body {
             background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
@@ -31,8 +30,7 @@
             overflow-x: hidden;
             overflow-y: auto;
         }
-
-        /* --- DRZEWA NEONOWE (POPRAWIONE) --- */
+      /* --- DRZEWA NEONOWE (POPRAWIONE) --- */
         .neon-tree {
             position: fixed;
             top: 50%;
@@ -45,11 +43,9 @@
             font-size: 0.9rem;
             font-weight: bold;
         }
-
-        .tree-left { left: 2%; text-align: left; }
+     .tree-left { left: 2%; text-align: left; }
         .tree-right { right: 2%; text-align: right; }
-
-        /* --- NIEDŹWIEDŹ --- */
+       /* --- NIEDŹWIEDŹ --- */
         .cyber-bear {
             position: fixed;
             top: 55%;
@@ -63,12 +59,10 @@
             transition: left 0.5s ease-in-out;
             pointer-events: none;
         }
-
         .bear-peek {
             left: 3%;
         }
-
-        /* --- KACZKA --- */
+           /* --- KACZKA --- */
         .cyber-duck {
             position: fixed;
             top: 45%;
@@ -82,13 +76,11 @@
             pointer-events: none;
             display: none;
         }
-
-        .duck-flying {
+         .duck-flying {
             display: block;
             animation: duck-flight-path 4s linear forwards;
         }
-
-        @keyframes duck-flight-path {
+            @keyframes duck-flight-path {
             0% { right: -150px; transform: translateY(0) scaleX(1); }
             75% { right: 88%; transform: translateY(-20px) scaleX(1); }
             80% { right: 88%; transform: translateY(-20px) rotate(-45deg); color: #ff0055; text-shadow: 0 0 15px #ff0055; }
@@ -271,7 +263,83 @@
     </div>
 
     <div id="duck" class="cyber-duck">
-  __
+       
+  __ /* --- CYFROWA KACZKA ANIMACJA --- */
+        .cyber-duck {
+            position: fixed;
+            top: 45%;
+            right: -150px; /* Zaczyna niewidoczna po prawej stronie */
+            color: #00f0ff; /* Neonowy niebieski lot kaczki */
+            font-family: monospace;
+            white-space: pre;
+            font-size: 1.1rem;
+            text-shadow: 0 0 8px var(--neon-blue);
+            z-index: 10;
+            pointer-events: none;
+            display: none; /* Domyślnie schowana, skrypt ją aktywuje */
+        }
+
+        .duck-flying {
+            display: block;
+            animation: duck-flight-path 4s linear forwards;
+        }
+
+        @keyframes duck-flight-path {
+            0% {
+                right: -150px;
+                transform: translateY(0) scaleX(1);
+            }
+            75% {
+                /* Dolatuje do lewego drzewa (około 92% szerokości ekranu) */
+                right: 92%;
+                transform: translateY(-20px) scaleX(1);
+            }
+            80% {
+                /* BUM! Uderzenie o lewe drzewo, zmiana pozycji i lekki obrót */
+                right: 92%;
+                transform: translateY(-20px) rotate(-45deg);
+                color: #ff0055; /* Zmiana koloru na czerwony przy zderzeniu */
+                text-shadow: 0 0 15px #ff0055;
+            }
+            100% {
+                /* Spadanie w dół do cyber-wody */
+                right: 92%;
+                top: 90%;
+                transform: translateY(100px) rotate(-90deg);
+                opacity: 0;
+                color: #ff0055;
+            }
+        }
+
+<!-- Obiekt naszej kaczki ASCII -->
+    <div id="matrix-duck" class="cyber-duck">
+  __(' &lt;)
+ (___)  
+    </div>
+
+    </div> <!-- Domknięcie .container -->
+
+    <script>
+        // Funkcja wypuszczająca kaczkę
+        function releaseTheDuck() {
+            const duck = document.getElementById('matrix-duck');
+            
+            // Resetujemy animację, jeśli była już odpalona
+            duck.classList.remove('duck-flying');
+            void duck.offsetWidth; // Triki z triggerowaniem reflow w CSS
+            
+            // Odpalamy lot!
+            duck.classList.add('duck-flying');
+        }
+
+        // Pierwsze odpalenie po 5 sekundach od wejścia na stronę
+        setTimeout(releaseTheDuck, 5000);
+
+        // Kolejne powtórzenia pętli lotu kaczki dokładnie co 1 minutę
+        setInterval(releaseTheDuck, 60000);
+    </script>
+</body>
+</html>
 <(o )___
  ( ._> /
   `---'
@@ -287,13 +355,7 @@
         <div class="container">
             <!-- Tutaj zaczyna się Twój terminal-box z pełną zawartością kodu i tekstu -->
             <div class="terminal-box">
-//++/++++/++++++||||||||||||
-//++/++++/++++++||||||||||||
-🐻[O.o]/‾__
-<(o )___
-( ._> /
-`---'
-~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~ ~~~~~
+
 WELCOME TO MAGDAERRORKILLERMOLE69 
 VERSATILE ARTIST AND SENIOR DEV PORTFOLIO
 
