@@ -7,11 +7,11 @@
      
     <style>
         :root {
-            --bg-gradient-start: #420620; /* Jaśniejsze bordo */
-            --bg-gradient-end: #1f0430;   /* Jaśniejszy fiolet */
+            --bg-gradient-start: #2b0414; /* Ciemne bordo */
+            --bg-gradient-end: #12021c;   /* Głęboki fiolet */
             --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
             --neon-green: #39ff14;        /* Jasnozielone światło */
-            --text-color: #f1f5f9;        /* Bardzo jasny tekst */
+            --text-color: #e2e8f0;        /* Neutralny */
             --btn-bg: #052e16;            /* Ciemnozielony przycisk */
         }
 
@@ -20,57 +20,56 @@
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px 20px 120px 20px; /* Większy margines na dole na scrollowanie */
+            padding: 20px 20px 80px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
             border: 4px solid var(--neon-blue);
             box-sizing: border-box;
-            box-shadow: inset 0 0 40px rgba(0, 240, 255, 0.5);
+            box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
             position: relative;
             overflow-x: hidden;
-            overflow-y: auto; /* Włączenie przewijania, aby dół strony był dostępny */
+            overflow-y: auto; /* Zapewnia przewijanie pionowe wszystkich sekcji */
         }
 
-        /* --- DRZEWA NEONOWE --- */
+        /* --- DRZEWA NEONOWE (POPRAWIONE) --- */
         .neon-tree {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
             color: var(--neon-green);
-            opacity: 1 !important;
-            text-shadow: 0 0 12px var(--neon-green), 0 0 25px var(--neon-green);
+            opacity: 0.9 !important; /* Maksymalna widoczność */
+            text-shadow: 0 0 10px var(--neon-green), 0 0 20px rgba(57, 255, 20, 0.5);
             white-space: pre;
             z-index: 1;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
-            pointer-events: none;
         }
 
         .tree-left { left: 2%; text-align: left; }
         .tree-right { right: 2%; text-align: right; }
 
-        /* --- NIEDŹWIEDŹ WYCHYLAJĄCY SIĘ ZZA PRAWEGO DRZEWA --- */
+        /* --- NIEDŹWIEDŹ --- */
         .cyber-bear {
             position: fixed;
             top: 55%;
-            right: -150px;
+            left: -100px;
             color: #ffaa00;
             font-family: monospace;
             white-space: pre;
-            font-size: 1rem;
-            text-shadow: 0 0 12px #ffaa00;
+            font-size: 0.9rem;
+            text-shadow: 0 0 8px #ffaa00;
             z-index: 2;
-            transition: right 0.5s ease-in-out;
+            transition: left 0.5s ease-in-out;
             pointer-events: none;
         }
 
         .bear-peek {
-            right: 4%;
+            left: 3%; 
         }
 
-        /* --- CYFROWA KACZKA --- */
+        /* --- KACZKA --- */
         .cyber-duck {
             position: fixed;
             top: 45%;
@@ -78,8 +77,8 @@
             color: #00f0ff;
             font-family: monospace;
             white-space: pre;
-            font-size: 1rem;
-            text-shadow: 0 0 12px var(--neon-blue);
+            font-size: 0.9rem;
+            text-shadow: 0 0 10px var(--neon-blue);
             z-index: 10;
             pointer-events: none;
             display: none; 
@@ -91,22 +90,22 @@
         }
 
         @keyframes duck-flight-path {
-            0% { right: -150px; transform: translateY(0); }
-            75% { right: 88%; transform: translateY(-20px); }
-            80% { right: 88%; transform: translateY(-20px) rotate(-45deg); color: #ff0055; text-shadow: 0 0 20px #ff0055; }
+            0% { right: -150px; transform: translateY(0) scaleX(1); }
+            75% { right: 88%; transform: translateY(-20px) scaleX(1); }
+            80% { right: 88%; transform: translateY(-20px) rotate(-45deg); color: #ff0055; text-shadow: 0 0 15px #ff0055; }
             100% { right: 88%; top: 85%; transform: translateY(100px) rotate(-90deg); opacity: 0; color: #ff0055; }
         }
 
-        /* --- CYBER WODA --- */
+        /* --- WODA --- */
         .cyber-water {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             height: 40px;
-            background: linear-gradient(transparent, rgba(0, 240, 255, 0.3));
+            background: linear-gradient(transparent, rgba(0, 240, 255, 0.2));
             border-top: 2px dashed var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 240, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
             z-index: 3;
             pointer-events: none;
             display: flex;
@@ -117,9 +116,9 @@
 
         .water-waves {
             color: var(--neon-blue);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             letter-spacing: 8px;
-            text-shadow: 0 0 10px var(--neon-blue);
+            text-shadow: 0 0 8px var(--neon-blue);
             white-space: nowrap;
             animation: wave-move 4s linear infinite;
         }
@@ -129,13 +128,13 @@
             100% { transform: translateX(-40px); }
         }
 
-        /* --- NAGŁÓWEK --- */
+        /* --- NAGŁÓWEK (POPRAWIONY) --- */
         .header {
             text-align: center;
             margin-top: 40px;
             position: relative;
             z-index: 5;
-            max-width: 60%;
+            max-width: 90%;
             width: 100%;
         }
 
@@ -144,24 +143,24 @@
             font-size: 2.2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
-            margin-bottom: 15px;
-            line-height: 1.4;
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
+            margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
         .subtitle {
             color: var(--neon-green);
-            font-size: 1.15rem;
-            text-shadow: 0 0 10px var(--neon-green);
+            font-size: 1.1rem;
+            text-shadow: 0 0 8px var(--neon-green);
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 25px;
             letter-spacing: 2px;
         }
 
-        /* --- KONTENER GŁÓWNY --- */
+        /* --- SKILLE ORAZ SEKCJE TERMINALA --- */
         .container {
-            max-width: 700px;
+            max-width: 800px;
             width: 100%;
             margin-top: 10px;
             display: flex;
@@ -169,13 +168,12 @@
             gap: 25px;
             position: relative;
             z-index: 5;
-            margin-bottom: 50px;
         }
 
         .terminal-box {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.85);
             border: 2px solid var(--neon-blue); 
-            box-shadow: 0 0 25px rgba(0, 240, 255, 0.5); 
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); 
             padding: 25px;
             border-radius: 5px;
             line-height: 1.8;
@@ -184,54 +182,16 @@
 
         .section-title {
             color: var(--neon-green);
-            text-shadow: 0 0 8px var(--neon-green);
+            text-shadow: 0 0 5px var(--neon-green);
             margin-top: 0;
-            margin-bottom: 20px;
             font-size: 1.3rem;
-            letter-spacing: 2px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .skill-line {
             margin-bottom: 8px;
             white-space: pre-wrap;
-        }
-
-        /* --- FORMULARZ --- */
-        .form-group {
-            margin-bottom: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .form-group label {
-            color: var(--neon-blue);
-            text-shadow: 0 0 5px var(--neon-blue);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
-
-        .cyber-input, .cyber-textarea {
-            width: 100%;
-            background: rgba(0, 15, 5, 0.8);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            padding: 10px;
-            box-sizing: border-box;
-            outline: none;
-        }
-
-        .cyber-input:focus, .cyber-textarea:focus {
-            border-color: var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
-            color: var(--neon-blue);
-        }
-
-        .cyber-textarea {
-            height: 120px;
-            resize: none;
         }
 
         .punk-btn {
@@ -241,55 +201,73 @@
             font-size: 1rem;
             font-weight: bold;
             text-transform: uppercase;
-            padding: 12px 24px;
-            margin-top: 10px;
+            padding: 10px 20px;
+            margin-top: 15px;
             border: 2px solid var(--neon-green);
             border-radius: 4px;
             cursor: pointer;
             box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
             text-shadow: 0 0 5px var(--neon-green);
-            width: 100%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .punk-btn:hover {
             background-color: var(--neon-green);
             color: #000;
             box-shadow: 0 0 20px var(--neon-green);
-            transform: scale(1.01);
+            text-shadow: none;
+            transform: scale(1.02);
         }
 
-        .contact-notice {
+        .status-output {
             margin-top: 15px;
-            font-size: 0.85rem;
+            padding: 10px;
+            background: rgba(0, 20, 0, 0.4);
+            border-left: 3px solid var(--neon-green);
+            font-size: 0.9rem;
             color: #a7f3d0;
-            border-left: 3px solid var(--neon-blue);
-            padding-left: 10px;
-            line-height: 1.4;
+            display: none;
+        }
+
+        .cyber-textarea {
+            width: 100%;
+            height: 150px;
+            background: rgba(0, 10, 5, 0.8);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            font-family: 'Courier New', Courier, monospace;
+            padding: 10px;
+            box-sizing: border-box;
+            resize: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Drzewa ASCII (Bezpieczna składnia) -->
+    <!-- Drzewa ASCII -->
     <div class="neon-tree tree-left">
-     /\
-    /++\
-   /++++\
-  /++++++\
-    ||||
-    ||||
+    /\
+   /++\
+  /++++\
+ /++++++\
+   ||||
+   ||||
+   ||||
     </div>
 
     <div class="neon-tree tree-right">
-     /\
-    /++\
-   /++++\
-  /++++++\
-    ||||
-    ||||
+    /\
+   /++\
+  /++++\
+ /++++++\
+   ||||
+   ||||
+   ||||
     </div>
 
-    <!-- Niedźwiedź (Z prawej) -->
+    <!-- Niedźwiedź -->
     <div class="cyber-bear" id="bear">
  🐻
 [O.o]
@@ -315,17 +293,26 @@
         <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV PORTFOLIO</div>
     </div>
 
-    <!-- Kontener główny -->
+    <!-- Kontener główny zawartości (Tutaj lądują wszystkie sekcje) -->
     <div class="container">
         
-        <!-- Panel Technologii -->
+        <!-- Twoje Skille odtworzone 1:1 ze screena -->
         <div class="terminal-box">
-            <h2 class="section-title">> SKILLS_INVENTORY</h2>
             <div class="skill-line"><span style="color: #eab308;">🐍 Python + Selenium:</span> 💻 (Sieć/Browser) | 🤖 (Automation)</div>
             <div class="skill-line"><span style="color: #eab308;">🟨 JavaScript:</span> ⚡ (dynamics) | 🌐</div>
             <div class="skill-line"><span style="color: #a855f7;">💜 Kotlin:</span> 📱 (Mobilne/Android)</div>
             <div class="skill-line"><span style="color: #f97316;">🔥 Spark:</span> (fire) | ⚡ (Fast processing) | 📊</div>
             <div class="skill-line"><span style="color: #06b6d4;">⚛️ React:</span> (Atom/React logo) | 💻 (Frontend)</div>
+            <div class="skill-line"><span style="color: #3b82f6;">🔷 BigQuery:</span> 🗄️ (Database) | ☁️ (Chmura)</div>
+            <div class="skill-line"><span style="color: #ef4444;">🔴 Scala:</span> potential) | ⚙️ (Scalability)</div>
+            <div class="skill-line"><span style="color: #ec4899;">📐 Figma:</span> 📐 (Projects) | 🎨</div>
+            <div class="skill-line"><span style="color: #22c55e;">🤖 AI / Agents building skills:</span> 🧠 (mind) | 🤖 (Robot) | ⚙️ (Algorithms)</div>
+            <hr style="border: 1px dashed var(--neon-blue); margin: 20px 0;">
 
+       
+       
 
+      
+
+  
         
