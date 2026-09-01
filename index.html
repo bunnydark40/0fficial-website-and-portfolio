@@ -39,10 +39,10 @@
             transform: translateY(-50%);
             color: var(--neon-green);
             opacity: 1 !important;
-            text-shadow: 0 0 12px var(--neon-green), 0 0 25px var(--neon-green), 0 0 35px var(--neon-green);
+            text-shadow: 0 0 12px var(--neon-green), 0 0 25px var(--neon-green);
             white-space: pre;
             z-index: 1;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: bold;
         }
 
@@ -53,19 +53,19 @@
         .cyber-bear {
             position: fixed;
             top: 55%;
-            right: -120px;
+            right: -150px;
             color: #ffaa00;
             font-family: monospace;
             white-space: pre;
-            font-size: 0.95rem;
-            text-shadow: 0 0 12px #ffaa00, 0 0 25px #ffaa00;
+            font-size: 1rem;
+            text-shadow: 0 0 12px #ffaa00;
             z-index: 2;
             transition: right 0.5s ease-in-out;
             pointer-events: none;
         }
 
         .bear-peek {
-            right: 3%;
+            right: 4%;
         }
 
         /* --- CYFROWA KACZKA --- */
@@ -76,8 +76,8 @@
             color: #00f0ff;
             font-family: monospace;
             white-space: pre;
-            font-size: 0.95rem;
-            text-shadow: 0 0 12px var(--neon-blue), 0 0 25px var(--neon-blue);
+            font-size: 1rem;
+            text-shadow: 0 0 12px var(--neon-blue);
             z-index: 10;
             pointer-events: none;
             display: none; 
@@ -89,8 +89,8 @@
         }
 
         @keyframes duck-flight-path {
-            0% { right: -150px; transform: translateY(0) scaleX(1); }
-            75% { right: 88%; transform: translateY(-20px) scaleX(1); }
+            0% { right: -150px; transform: translateY(0); }
+            75% { right: 88%; transform: translateY(-20px); }
             80% { right: 88%; transform: translateY(-20px) rotate(-45deg); color: #ff0055; text-shadow: 0 0 20px #ff0055; }
             100% { right: 88%; top: 85%; transform: translateY(100px) rotate(-90deg); opacity: 0; color: #ff0055; }
         }
@@ -133,7 +133,7 @@
             margin-top: 40px;
             position: relative;
             z-index: 5;
-            max-width: 65%;
+            max-width: 60%;
             width: 100%;
         }
 
@@ -145,8 +145,6 @@
             text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
             margin-bottom: 15px;
             line-height: 1.4;
-            display: block;
-            width: 100%;
         }
 
         .subtitle {
@@ -169,6 +167,7 @@
             gap: 25px;
             position: relative;
             z-index: 5;
+            margin-bottom: 50px;
         }
 
         .terminal-box {
@@ -220,12 +219,11 @@
             padding: 10px;
             box-sizing: border-box;
             outline: none;
-            box-shadow: inset 0 0 5px rgba(57, 255, 20, 0.2);
         }
 
         .cyber-input:focus, .cyber-textarea:focus {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4), inset 0 0 5px rgba(0, 240, 255, 0.2);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
             color: var(--neon-blue);
         }
 
@@ -248,7 +246,6 @@
             cursor: pointer;
             box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
             text-shadow: 0 0 5px var(--neon-green);
-            transition: all 0.3s ease;
             width: 100%;
         }
 
@@ -256,7 +253,6 @@
             background-color: var(--neon-green);
             color: #000;
             box-shadow: 0 0 20px var(--neon-green);
-            text-shadow: none;
             transform: scale(1.01);
         }
 
@@ -272,28 +268,26 @@
 </head>
 <body>
 
-    <!-- Drzewa ASCII -->
+    <!-- Drzewa ASCII (Bezpieczna składnia) -->
     <div class="neon-tree tree-left">
-    /\
-   /++\
-  /++++\
- /++++++\
-   ||||
-   ||||
-   ||||
+     /\
+    /++\
+   /++++\
+  /++++++\
+    ||||
+    ||||
     </div>
 
     <div class="neon-tree tree-right">
-    /\
-   /++\
-  /++++\
- /++++++\
-   ||||
-   ||||
-   ||||
+     /\
+    /++\
+   /++++\
+  /++++++\
+    ||||
+    ||||
     </div>
 
-    <!-- Niedźwiedź -->
+    <!-- Niedźwiedź (Z prawej) -->
     <div class="cyber-bear" id="bear">
  🐻
 [O.o]
@@ -319,7 +313,7 @@
         <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV PORTFOLIO</div>
     </div>
 
-    <!-- Kontener główny zawartości -->
+    <!-- Kontener główny -->
     <div class="container">
         
         <!-- Panel Technologii -->
@@ -329,4 +323,5 @@
             <div class="skill-line"><span style="color: #eab308;">🟨 JavaScript:</span> ⚡ (dynamics) | 🌐</div>
             <div class="skill-line"><span style="color: #a855f7;">💜 Kotlin:</span> 📱 (Mobilne/Android)</div>
             <div class="skill-line"><span style="color: #f97316;">🔥 Spark:</span> (fire) | ⚡ (Fast processing) | 📊</div>
-
+            <div class="skill-line"><span style="color: #06b6d4;">⚛️ React:</span> (Atom/React logo) | 💻 (Frontend)</div>
+            <div class="skill-line"><span style="color: #3b82f6;">🔷 BigQuery:</span> 🗄️ (Database) | ☁️ (Chmura)</div>
