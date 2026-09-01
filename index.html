@@ -229,6 +229,51 @@
 <body>
 
     <div class="neon-tree tree-left">
+         </div>
+
+    <div class="cyber-flying-duck">
+        <div class="cyber-flying-duck">                 text-shadow: 0 0 15px #ff0055;
+            }
+            100% {
+                /* Spadanie w dół do cyber-wody */
+                right: 92%;
+                top: 90%;
+                transform: translateY(100px) rotate(-90deg);
+                opacity: 0;
+                color: #ff0055;
+            }
+        }
+
+<!-- Obiekt naszej kaczki ASCII -->
+    <div id="matrix-duck" class="cyber-duck">
+  __(' &lt;)
+ (___)  
+    </div>
+
+    </div> <!-- Domknięcie .container -->
+
+    <script>
+        // Funkcja wypuszczająca kaczkę
+        function releaseTheDuck() {
+            const duck = document.getElementById('matrix-duck');
+            
+            // Resetujemy animację, jeśli była już odpalona
+            duck.classList.remove('duck-flying');
+            void duck.offsetWidth; // Triki z triggerowaniem reflow w CSS
+            
+            // Odpalamy lot!
+            duck.classList.add('duck-flying');
+        }
+
+        // Pierwsze odpalenie po 5 sekundach od wejścia na stronę
+        setTimeout(releaseTheDuck, 5000);
+
+        // Kolejne powtórzenia pętli lotu kaczki dokładnie co 1 minutę
+        setInterval(releaseTheDuck, 60000);
+    </script>
+</body>
+</html> /div>
+    </div>
      /\
     /  \
    /++++\
@@ -241,7 +286,7 @@
    /  \
   /++++\
     ||
-    ```
+ 
     </div>
     <div class="neon-tree tree-right">
      /\
@@ -252,7 +297,7 @@
     ||||
     ||||
     ||||
-        
+      ```   
     /\
    /  \
   /++++\
