@@ -5,333 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ErrorKillerMole69 Portfolio</title>
     <style>
-        :root {
-            --bg-gradient-start: #2b0414; /* Ciemne bordo */
-            --bg-gradient-end: #12021c;   /* Głęboki fiolet */
-            --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
-            --neon-green: #39ff14;        /* Jasnozielone światło */
-            --text-color: #e2e8f0;
-            --btn-bg: #052e16;            /* Ciemnozielony przycisk */
-        }
-
-        body {
-            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-            color: var(--text-color);
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 20px 20px 120px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            border: 4px solid var(--neon-blue);
-            box-sizing: border-box;
-            box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        .neon-tree {
-            position: fixed;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--neon-green);
-            font-size: 1.8rem;
-            line-height: 1.1;
-            white-space: pre;
-            text-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green);
-            user-select: none;
-            pointer-events: none;
-            opacity: 0.4;
-            z-index: 1;
-        }
-
-        .tree-left { left: 4%; text-align: left; }
-        .tree-right { right: 4%; text-align: right; }
-
-        .cyber-water {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(transparent, rgba(0, 240, 255, 0.15));
-            border-top: 2px dashed var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
-            z-index: 10;
-            pointer-events: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .water-waves {
-            color: var(--neon-blue);
-            font-size: 1.2rem;
-            letter-spacing: 8px;
-            text-shadow: 0 0 8px var(--neon-blue);
-            white-space: nowrap;
-            animation: wave-move 4s linear infinite;
-        }
-
-        @keyframes wave-move {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-40px); }
-        }
-
-        .header {
-            text-align: center;
-            margin-top: 40px;
-            position: relative;
-            z-index: 5;
-        }
-
-        h1 {
-            color: #fff;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-            margin-bottom: 5px;
-        }
-
-        .subtitle {
-            color: var(--neon-green);
-            font-size: 1.2rem;
-            text-shadow: 0 0 8px var(--neon-green);
-            font-weight: bold;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-            margin-top: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-            position: relative;
-            z-index: 5;
-        }
-
-        .terminal-box {
-            background: rgba(0, 0, 0, 0.85);
-            border: 2px solid var(--neon-blue); 
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); 
-            padding: 20px;
-            border-radius: 5px;
-        }
-
-        .shineing-box {
-            border: 2px dashed var(--neon-green);
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
-        }
-
-        .section-title {
-            color: var(--neon-green);
-            text-shadow: 0 0 5px var(--neon-green);
-            margin-top: 0;
-            font-size: 1.3rem;
-        }
-
-        .punk-btn {
-            background-color: var(--btn-bg);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            padding: 10px 20px;
-            margin-top: 15px;
-            border: 2px solid var(--neon-green);
-            border-radius: 4px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-            text-shadow: 0 0 5px var(--neon-green);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .punk-btn:hover {
-            background-color: var(--neon-green);
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-green);
-            text-shadow: none;
-            transform: scale(1.02);
-        }
-
-        .status-output {
-            margin-top: 15px;
-            padding: 10px;
-            background: rgba(0, 20, 0, 0.4);
-            border-left: 3px solid var(--neon-green);
-            font-size: 0.9rem;
-            color: #a7f3d0;
-            display: none;
-        }
-
-        .cyber-textarea {
-            width: 100%;
-            height: 150px;
-            background: rgba(0, 10, 5, 0.8);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-top: 15px;
-            resize: vertical;
-            outline: none;
-            box-shadow: 0 0 5px rgba(57, 255, 20, 0.2);
-        }
-
-        .cyber-textarea:focus {
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
-        }
-
-        .SKILLS {
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.8;
-            color: #fff;
-            white-space: pre-line;
-        }
-
-        /* SCENA Z NIEDŹWIEDZIEM */
-        .scene {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-            border-bottom: 4px solid #1a3644;
-            margin: 20px auto 0 auto;
-            background: radial-gradient(circle, #101e2b 0%, #050a0f 100%);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .bear {
-            position: absolute;
-            bottom: 0;
-            left: 220px; 
-            width: 140px;
-            height: 260px;
-            z-index: 1; 
-            animation: peek-a-boo 5s ease-in-out infinite;
-        }
-
-        .bear-body {
-            position: absolute;
-            bottom: 0;
-            width: 130px;
-            height: 200px;
-            background: #eef2f7;
-            border-radius: 40px 40px 10px 10px;
-            box-shadow: inset -15px 0 20px #cbd5e1;
-        }
-
-        .bear-head {
-            position: absolute;
-            top: 20px;
-            left: 15px;
-            width: 100px;
-            height: 90px;
-            background: #ffffff;
-            border-radius: 50%;
-            box-shadow: inset -5px -5px 15px #cbd5e1;
-        }
-
-        .bear-ear-l, .bear-ear-r {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #eef2f7;
-            border-radius: 50%;
-            top: 10px;
-        }
-        .bear-ear-l { left: 10px; }
-        .bear-ear-r { right: 10px; }
-
-        .bear-eye-l, .bear-eye-r {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #0f172a;
-            border-radius: 50%;
-            top: 40px;
-        }
-        .bear-eye-l { left: 30px; }
-        .bear-eye-r { right: 30px; }
-
-        .bear-snout {
-            position: absolute;
-            width: 40px;
-            height: 30px;
-            background: #e2e8f0;
-            border-radius: 40%;
-            bottom: 10px;
-            left: 30px;
-        }
-
-        .bear-nose {
-            position: absolute;
-            width: 12px;
-            height: 8px;
-            background: #0f172a;
-            border-radius: 50%;
-            top: 5px;
-            left: 14px;
-        }
-
-        .bear-leg-l, .bear-leg-r {
-            position: absolute;
-            bottom: 0;
-            width: 35px;
-            height: 40px;
-            background: #cbd5e1;
-            border-radius: 10px;
-        }
-        .bear-leg-l { left: 15px; }
-        .bear-leg-r { right: 25px; }
-
-        .tree {
-            position: absolute;
-            bottom: 0;
-            left: 120px;
-            width: 160px;
-            height: 380px;
-            z-index: 3;
-        }
-
-        .trunk {
-            position: absolute;
-            bottom: 0;
-            left: 65px;
-            width: 30px;
-            height: 200px;
-            background: #3e2723;
-        }
-
-        .foliage-1, .foliage-2, .foliage-3 {
-            position: absolute;
-            background: #0f5132;
-            border-radius: 50%;
-        }
-        .foliage-1 { width: 140px; height: 140px; bottom: 160px; left: 10px; }
-        .foliage-2 { width: 120px; height: 120px; bottom: 220px; left: 20px; }
-        .foliage-3 { width: 90px; height: 90px; bottom: 280px; left: 35px; }
-
-        @keyframes peek-a-boo {
-            0% { transform: translateX(0) rotate(0deg); }
-            20% { transform: translateX(-150px) rotate(-3deg); }
-            45% { transform: translateX(-150px) rotate(0deg); }
-            65% { transform: translateX(0) rotate(0deg); }
-            100% { transform: translateX(0) rotate(0deg); }
-        }
+        body { background: #12021c; color: #e2e8f0; font-family: 'Courier New', monospace; padding: 20px; text-align: center; }
+        .container { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .terminal-box { background: rgba(0, 0, 0, 0.85); border: 2px solid #00f0ff; padding: 20px; border-radius: 5px; text-align: left; }
+        .section-title { color: #39ff14; }
+        .punk-btn { background: #052e16; color: #39ff14; padding: 10px 20px; border: 2px solid #39ff14; text-decoration: none; display: inline-block; font-weight: bold; margin-top: 10px; }
+        .punk-btn:hover { background: #39ff14; color: #000; }
     </style>
-    <script>
-        function launchSystem(sectionId, message) {
-            const output = document.getElementById(sectionId);
+</head>
+<body>
+    <h1>ErrorKillerMole69</h1>
+    <p style="color: #39ff14; font-weight: bold;">VERSATILE ARTIST AND SENIOR DEV</p>
+    <div class="container">
+        <div class="terminal-box">
+            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
+            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
+        </div>
+        <div class="terminal-box">
+            <h2 class="section-title">// 02. ART & GRAPHICS</h2>
+            <p>Visual repository housing graphic elements, cyberpunk concept designs, and creative layouts.</p>
+            <a href="https://behance.net" target="_blank" class="punk-btn">Open Behance Portfolio</a>
+        </div>
+        <div class="terminal-box">
+            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
+            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
+            <a href="https://behance.net" target="_blank" class="punk-btn">Initialize Web Portals</a>
+        </div>
+        <div class="terminal-box">
+            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
+            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
+        </div>
+    </div>
+</body>
+</html>
