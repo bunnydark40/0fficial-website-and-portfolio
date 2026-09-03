@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ErrorKillerMole69 | VERSATILE ARTIST AND SENIOR DEV</title>
-    <!-- Biblioteka do ikon -->
-    <link rel="stylesheet" href="https://cloudflare.com">
+    <title>ErrorKillerMole69</title>
     <style>
         :root {
-            --bg-gradient-start: #2b0414; 
-            --bg-gradient-end: #12021c;   
-            --neon-blue: #00f0ff;         
-            --neon-green: #39ff14;        
+            --bg-gradient-start: #2b0414; /* Ciemne bordo */
+            --bg-gradient-end: #12021c;   /* Głęboki fiolet */
+            --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
+            --neon-green: #39ff14;        /* Jasnozielone światło */
             --text-color: #e2e8f0;
-            --btn-bg: #052e16;            
+            --btn-bg: #052e16;            /* Ciemnozielony przycisk */
         }
 
         body {
@@ -38,18 +36,18 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--neon-green);
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             line-height: 1.1;
             white-space: pre;
             text-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green);
             user-select: none;
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 1;
             z-index: 1;
         }
 
-        .tree-left { left: 3%; text-align: left; }
-        .tree-right { right: 3%; text-align: right; }
+        .tree-left { left: 4%; text-align: left; }
+        .tree-right { right: 4%; text-align: right; }
 
         .cyber-water {
             position: fixed;
@@ -63,7 +61,7 @@
             z-index: 2;
             pointer-events: none;
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             align-items: center;
             overflow: hidden;
         }
@@ -74,45 +72,44 @@
             letter-spacing: 8px;
             text-shadow: 0 0 8px var(--neon-blue);
             white-space: nowrap;
-            display: inline-block;
             animation: wave-move 4s linear infinite;
         }
 
         @keyframes wave-move {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-12em); }
+            100% { transform: translateX(-40px); }
         }
 
         .header {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 40px;
             position: relative;
             z-index: 5;
         }
 
         h1 {
             color: #fff;
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 4px;
             text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
             margin-bottom: 5px;
         }
 
-        h2 {
+        .subtitle {
             color: var(--neon-green);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-shadow: 0 0 8px var(--neon-green);
-            margin: 0;
+            font-weight: bold;
         }
 
         .container {
             max-width: 800px;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 30px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             position: relative;
             z-index: 5;
         }
@@ -129,7 +126,7 @@
             color: var(--neon-green);
             text-shadow: 0 0 5px var(--neon-green);
             margin-top: 0;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .punk-btn {
@@ -171,7 +168,7 @@
 
         .cyber-textarea {
             width: 100%;
-            height: 120px;
+            height: 150px;
             background: rgba(0, 10, 5, 0.8);
             border: 1px solid var(--neon-green);
             color: var(--neon-green);
@@ -188,134 +185,262 @@
             box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
         }
 
-        .tech-stack {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 12px;
-            margin-top: 15px;
+        /* DODATKOWE STYLIZACJE DLA MISIA I SCENY */
+        .scene {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            border-bottom: 4px solid #1a3644;
+            margin: 20px auto;
+            background: rgba(16, 30, 43, 0.6);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
-        .tech-item {
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid var(--neon-blue);
-            padding: 10px;
-            text-align: center;
-            font-size: 0.9rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            transition: all 0.3s ease;
+        .bear {
+            position: absolute;
+            bottom: 0;
+            left: 220px; 
+            width: 140px;
+            height: 260px;
+            z-index: 1; 
+            animation: peek-a-boo 5s ease-in-out infinite;
         }
 
-        .tech-item:hover {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 10px var(--neon-green);
-            color: var(--neon-green);
+        .bear-body {
+            position: absolute;
+            bottom: 0;
+            width: 130px;
+            height: 200px;
+            background: #eef2f7;
+            border-radius: 40px 40px 10px 10px;
+            box-shadow: inset -15px 0 20px #cbd5e1;
         }
 
-        .tech-item i {
-            font-size: 1.6rem;
-            color: var(--neon-blue);
+        .bear-head {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            width: 100px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 15px #cbd5e1;
         }
 
-        .tech-item:hover i {
-            color: var(--neon-green);
+        .bear-ear-l, .bear-ear-r {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #eef2f7;
+            border-radius: 50%;
+            top: 10px;
+        }
+        .bear-ear-l { left: 10px; }
+        .bear-ear-r { right: 10px; }
+
+        .bear-eye-l, .bear-eye-r {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #0f172a;
+            border-radius: 50%;
+            top: 40px;
+        }
+        .bear-eye-l { left: 30px; }
+        .bear-eye-r { right: 30px; }
+
+        .bear-snout {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 40%;
+            bottom: 10px;
+            left: 30px;
+        }
+
+        .bear-nose {
+            position: absolute;
+            width: 12px;
+            height: 8px;
+            background: #0f172a;
+            border-radius: 50%;
+            top: 5px;
+            left: 14px;
+        }
+
+        .bear-leg-l, .bear-leg-r {
+            position: absolute;
+            bottom: 0;
+            width: 35px;
+            height: 40px;
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .bear-leg-l { left: 15px; }
+        .bear-leg-r { right: 25px; }
+
+        .tree {
+            position: absolute;
+            bottom: 0;
+            left: 120px;
+            width: 160px;
+            height: 380px;
+            z-index: 3;
+        }
+
+        .trunk {
+            position: absolute;
+            bottom: 0;
+            left: 65px;
+            width: 30px;
+            height: 200px;
+            background: #3e2723;
+        }
+
+        .foliage-1, .foliage-2, .foliage-3 {
+            position: absolute;
+            background: #0f5132;
+            border-radius: 50%;
+        }
+        .foliage-1 { width: 140px; height: 140px; bottom: 160px; left: 10px; }
+        .foliage-2 { width: 120px; height: 120px; bottom: 220px; left: 20px; }
+        .foliage-3 { width: 90px; height: 90px; bottom: 280px; left: 35px; }
+
+        .shineing-box {
+            border: 2px dashed var(--neon-green);
+            padding: 20px;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+        }
+
+        .SKILLS {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.8;
+            color: #fff;
+            white-space: pre-line;
+        }
+
+        @keyframes peek-a-boo {
+            0% { transform: translateX(0) rotate(0deg); }
+            20% { transform: translateX(-150px) rotate(-3deg); }
+            45% { transform: translateX(-150px) rotate(0deg); }
+            65% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(0) rotate(0deg); }
         }
     </style>
     <script>
         function launchSystem(sectionId, message) {
             const output = document.getElementById(sectionId);
-            output.style.display = "block";
-            output.innerHTML = "[INITIALIZING...] <br> [LOADING CORE MODULES...]";
-            
-            setTimeout(() => {
-                output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Node online.</span>`;
-            }, 1200);
-        }
-
-        function saveNotes() {
-            const noteText = document.getElementById('cyber-notes').value;
-            localStorage.setItem('error_killer_notes', noteText);
-            const status = document.getElementById('notes-status');
-            status.style.display = "block";
-            status.innerHTML = "<span style='color:#00f0ff'>[SYSTEM LOG] Data written to cache successfully.</span>";
-        }
-
-        window.onload = function() {
-            const savedData = localStorage.getItem('error_killer_notes');
-            if(savedData && document.getElementById('cyber-notes')) {
-                document.getElementById('cyber-notes').value = savedData;
-            }
-        }
-    </script>
-</head>
-<body>
-
-    <!-- DRZEWA -->
-    <div class="neon-tree tree-left">
-     /\
-    /  \
-   /++++\
-  /++++++\
-  /++++++\
-    ||||
-    ||||
-    ||||
-    /\
-   /  \
-  /++++\
-    ||
-    ```</div>
-
-    <div class="neon-tree tree-right">
-     /\
-    /  \
-   /++++\
-  /++++++\
-  /++++++\
-    ||||
-    ||||
-    ||||
-    /\
-   /  \
-  /++++\
-    ||
-    ```</div>
-
-    <!-- WODA -->
-    <div class="cyber-water">
-        <div class="water-waves">~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
     </div>
 
-    <!-- NAGŁÓWEK -->
     <div class="header">
         <h1>ErrorKillerMole69</h1>
-        <h2>VERSATILE ARTIST AND SENIOR DEV</h2>
+        <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV</div>
     </div>
 
-    <!-- KONTENER GŁÓWNY -->
     <div class="container">
-        
-        <!-- PANEL SYSTEMOWY -->
+        <!-- SEKCJA 01 -->
         <div class="terminal-box">
-            <h3 class="section-title">01 // CORE TERMINAL</h3>
-            <p>Zarządzaj procesami i monitoruj błędy sieciowe w czasie rzeczywistym.</p>
-            <button class="punk-btn" onclick="launchSystem('system-log', 'Wszystkie systemy działają stabilnie. Brak kretów.')">Uruchom diagnostykę</button>
-            <div id="system-log" class="status-output"></div>
+            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
+            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
+            <p>&gt; AGENT 01: Instagram & Threads Automation</p>
+            <a href="#" class="punk-btn" onclick="launchSystem('output-01', 'Instagram Agent launched into cyberspace.'); return false;">Run Instagram Agent</a>
+            <p>&gt; AGENT 02: [SYSTEM LOCKED]</p>
+            <a href="#" class="punk-btn" style="opacity: 0.5; cursor: not-allowed;">Awaiting Deployment</a>
+            <div id="output-01" class="status-output"></div>
         </div>
 
-        <!-- NOTATNIK CYBERPUNKOWY -->
+        <!-- SEKCJA 02 -->
         <div class="terminal-box">
-            <h3 class="section-title">02 // CYBER NOTES</h3>
-            <textarea id="cyber-notes" class="cyber-textarea" placeholder="Wpisz swoje tajne logi..."></textarea>
-            <button class="punk-btn" onclick="saveNotes()">Zapisz w pamięci</button>
+            <h2 class="section-title">// 02. ART & GRAPHICS</h2>
+            <p>Visual repository housing graphic elements, cyberpunk concept designs, and creative layouts.</p>
+            <a href="https://behance.net" target="_blank" class="punk-btn">Open Behance Portfolio</a>
+        </div>
+
+        <!-- SEKCJA 03 -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
+            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
+            <a href="https://behance.net" target="_blank" class="punk-btn">Initialize Web Portals</a>
+        </div>
+
+        <!-- SEKCJA 04 -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
+            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
+            <textarea id="cyber-notes" class="cyber-textarea" placeholder="Enter root logs..."></textarea>
+            <button class="punk-btn" onclick="saveNotes()">Commit to Cache</button>
             <div id="notes-status" class="status-output"></div>
         </div>
 
-        <!-- RAMKA Z JĘZYKAMI I IKONAMI -->
+        <!-- SKILLS 02 - RAMKA Z JĘZYKAMI I UMIEJĘTNOŚCIAMI -->
+        <div class="terminal-box shineing-box">
+            <h2 class="section-title">// CORE SKILLS & TECH STACK</h2>
+            <div class="SKILLS">
+🐍 Python + Selenium: 💻 (Sieć/Browser) | 🤖 (Automation)
+🟨 JavaScript: ⚡ (dynamics) | 🌐
+💜 Kotlin: 📱 (Mobilne/Android)
+🔥 Spark: 🔥 | ⚡ (Fast processing) | 📊
+⚛️ React: ⚛️ | 💻 (Frontend)
+🔷 BigQuery: 🗄️ (Database) | ☁️ (Chmura)
+🔴 Scala: ⚙️ (Scalability)
+📐 Figma: 📐 (Projects) | 🎨
+🤖 AI / Agents building skills: 🧠 | 🤖 (Robot) | ⚙️ (Algorithms)
+🎨 artistic painting acryle and not only (art/UI) and with 9 graphics programs / create websites.
+🎸 Music: 🎵 (Guitar/Metal) | 🎹 (Keyboards) | singing | production
+            </div>
+        </div>
+
+        <!-- SCENA Z ANIMACJĄ NIEDŹWIEDZIA I DRZEWA -->
         <div class="terminal-box">
-            <h3 class="section-title">03 // TECH STACK & LANGUAGES</h3>
-            <div class="tech-stack">
-                <div class="tech-item">
-                    <i class="fab fa-html5"></i>
+            <h2 class="section-title">// 05. CYBER BEAR DEPLOYMENT AREA</h2>
+            <div class="scene">
+                <!-- Niedźwiedź z pełną anatomią -->
+                <div class="bear" id="cyberBear">
+                    <div class="bear-leg-l"></div>
+                    <div class="bear-leg-r"></div>
+                    <div class="bear-body">
+                        <div class="bear-ear-l"></div>
+                        <div class="bear-ear-r"></div>
+                        <div class="bear-head">
+                            <div class="bear-eye-l"></div>
+                            <div class="bear-eye-r"></div>
+                            <div class="bear-snout">
+                                <div class="bear-nose"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drzewo zasłaniające postać -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="foliage-1"></div>
+                    <div class="foliage-2"></div>
+                    <div class="foliage-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bear = document.getElementById('cyberBear');
+        if (bear) {
+            bear.addEventListener('click', () => {
+                bear.style.animationDuration = '2s';
+                setTimeout(() => {
+                    bear.style.animationDuration = '5s';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
+
+            
+    
