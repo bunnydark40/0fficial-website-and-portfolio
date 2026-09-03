@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ErrorKillerMole69</title>
+    <title>ErrorKillerMole69 Portfolio</title>
     <style>
         :root {
             --bg-gradient-start: #2b0414; /* Ciemne bordo */
@@ -19,7 +19,7 @@
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
             margin: 0;
-            padding: 20px 20px 80px 20px;
+            padding: 20px 20px 120px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -42,7 +42,7 @@
             text-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green);
             user-select: none;
             pointer-events: none;
-            opacity: 1;
+            opacity: 0.4;
             z-index: 1;
         }
 
@@ -58,7 +58,7 @@
             background: linear-gradient(transparent, rgba(0, 240, 255, 0.15));
             border-top: 2px dashed var(--neon-blue);
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
-            z-index: 2;
+            z-index: 10;
             pointer-events: none;
             display: flex;
             justify-content: center;
@@ -120,6 +120,14 @@
             box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); 
             padding: 20px;
             border-radius: 5px;
+        }
+
+        .shineing-box {
+            border: 2px dashed var(--neon-green);
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
         }
 
         .section-title {
@@ -185,15 +193,22 @@
             box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
         }
 
-        /* DODATKOWE STYLIZACJE DLA MISIA I SCENY */
+        .SKILLS {
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 1.8;
+            color: #fff;
+            white-space: pre-line;
+        }
+
+        /* SCENA Z NIEDŹWIEDZIEM */
         .scene {
             position: relative;
             width: 100%;
             max-width: 600px;
             height: 400px;
             border-bottom: 4px solid #1a3644;
-            margin: 20px auto;
-            background: rgba(16, 30, 43, 0.6);
+            margin: 20px auto 0 auto;
+            background: radial-gradient(circle, #101e2b 0%, #050a0f 100%);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -309,22 +324,6 @@
         .foliage-2 { width: 120px; height: 120px; bottom: 220px; left: 20px; }
         .foliage-3 { width: 90px; height: 90px; bottom: 280px; left: 35px; }
 
-        .shineing-box {
-            border: 2px dashed var(--neon-green);
-            padding: 20px;
-            margin-top: 30px;
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
-        }
-
-        .SKILLS {
-            font-family: 'Courier New', Courier, monospace;
-            line-height: 1.8;
-            color: #fff;
-            white-space: pre-line;
-        }
-
         @keyframes peek-a-boo {
             0% { transform: translateX(0) rotate(0deg); }
             20% { transform: translateX(-150px) rotate(-3deg); }
@@ -336,111 +335,3 @@
     <script>
         function launchSystem(sectionId, message) {
             const output = document.getElementById(sectionId);
-    </div>
-
-    <div class="header">
-        <h1>ErrorKillerMole69</h1>
-        <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV</div>
-    </div>
-
-    <div class="container">
-        <!-- SEKCJA 01 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
-            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
-            <p>&gt; AGENT 01: Instagram & Threads Automation</p>
-            <a href="#" class="punk-btn" onclick="launchSystem('output-01', 'Instagram Agent launched into cyberspace.'); return false;">Run Instagram Agent</a>
-            <p>&gt; AGENT 02: [SYSTEM LOCKED]</p>
-            <a href="#" class="punk-btn" style="opacity: 0.5; cursor: not-allowed;">Awaiting Deployment</a>
-            <div id="output-01" class="status-output"></div>
-        </div>
-
-        <!-- SEKCJA 02 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 02. ART & GRAPHICS</h2>
-            <p>Visual repository housing graphic elements, cyberpunk concept designs, and creative layouts.</p>
-            <a href="https://behance.net" target="_blank" class="punk-btn">Open Behance Portfolio</a>
-        </div>
-
-        <!-- SEKCJA 03 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
-            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
-            <a href="https://behance.net" target="_blank" class="punk-btn">Initialize Web Portals</a>
-        </div>
-
-        <!-- SEKCJA 04 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
-            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
-            <textarea id="cyber-notes" class="cyber-textarea" placeholder="Enter root logs..."></textarea>
-            <button class="punk-btn" onclick="saveNotes()">Commit to Cache</button>
-            <div id="notes-status" class="status-output"></div>
-        </div>
-
-        <!-- SKILLS 02 - RAMKA Z JĘZYKAMI I UMIEJĘTNOŚCIAMI -->
-        <div class="terminal-box shineing-box">
-            <h2 class="section-title">// CORE SKILLS & TECH STACK</h2>
-            <div class="SKILLS">
-🐍 Python + Selenium: 💻 (Sieć/Browser) | 🤖 (Automation)
-🟨 JavaScript: ⚡ (dynamics) | 🌐
-💜 Kotlin: 📱 (Mobilne/Android)
-🔥 Spark: 🔥 | ⚡ (Fast processing) | 📊
-⚛️ React: ⚛️ | 💻 (Frontend)
-🔷 BigQuery: 🗄️ (Database) | ☁️ (Chmura)
-🔴 Scala: ⚙️ (Scalability)
-📐 Figma: 📐 (Projects) | 🎨
-🤖 AI / Agents building skills: 🧠 | 🤖 (Robot) | ⚙️ (Algorithms)
-🎨 artistic painting acryle and not only (art/UI) and with 9 graphics programs / create websites.
-🎸 Music: 🎵 (Guitar/Metal) | 🎹 (Keyboards) | singing | production
-            </div>
-        </div>
-
-        <!-- SCENA Z ANIMACJĄ NIEDŹWIEDZIA I DRZEWA -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 05. CYBER BEAR DEPLOYMENT AREA</h2>
-            <div class="scene">
-                <!-- Niedźwiedź z pełną anatomią -->
-                <div class="bear" id="cyberBear">
-                    <div class="bear-leg-l"></div>
-                    <div class="bear-leg-r"></div>
-                    <div class="bear-body">
-                        <div class="bear-ear-l"></div>
-                        <div class="bear-ear-r"></div>
-                        <div class="bear-head">
-                            <div class="bear-eye-l"></div>
-                            <div class="bear-eye-r"></div>
-                            <div class="bear-snout">
-                                <div class="bear-nose"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drzewo zasłaniające postać -->
-                <div class="tree">
-                    <div class="trunk"></div>
-                    <div class="foliage-1"></div>
-                    <div class="foliage-2"></div>
-                    <div class="foliage-3"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        const bear = document.getElementById('cyberBear');
-        if (bear) {
-            bear.addEventListener('click', () => {
-                bear.style.animationDuration = '2s';
-                setTimeout(() => {
-                    bear.style.animationDuration = '5s';
-                }, 2000);
-            });
-        }
-    </script>
-</body>
-</html>
-
-            
-    
