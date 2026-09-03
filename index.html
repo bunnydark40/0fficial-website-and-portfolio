@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h1>ERRORKILLERMOLE69</h1>
-    <tittle>VERSATILE ARTIST AND SENIOR DEV </tittle>
+    <title>ErrorKillerMole69 Portfolio</title>
     <style>
         :root {
             --bg-gradient-start: #2b0414; /* Ciemne bordo */
@@ -15,7 +14,7 @@
             --btn-bg: #052e16;            /* Ciemnozielony przycisk */
         }
            
-            body {
+        body {
             background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
@@ -322,7 +321,17 @@
             animation: peek-a-boo 5s ease-in-out infinite;
         }
 
-        .bear-body {
+                .bear-head {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            width: 100px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 15px #cbd5e1;
+        }
+.bear-body {
             position: absolute;
             bottom: 0;
             width: 130px;
@@ -332,24 +341,48 @@
             box-shadow: inset -15px 0 20px #cbd5e1;
         }
 
-        .bear-head {ging | product
+              .bear-head {
             position: absolute;
             top: 20px;
             left: 15px;
             width: 100px;
             height: 90px;
             background: #ffffff;
-            border-radius:50%;
-            box-shadow:inset -5px -5px 15px #cbd5e1;
-                   }      
-        .bear-ear-l,.bear-ear-r {
-            position:absolute;
-            width:30px;
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 15px #cbd5e1;
+        }      
+        .bear-ear-l, .bear-ear-r {
+            position: absolute;
+            width: 30px;
             height: 30px;
-            background:#eef2f7;
-            border-radius: 50%;top: 10px;
+            background: #eef2f7;
+            border-radius: 50%;
+            top: 10px;
         }
-       .bear-ear-l { left: 10px; }
+
+               .bear-ear-l { left: 10px; }
+        .bear-ear-r { right: 10px; }
+        .bear-eye-l, .bear-eye-r {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #0f172a;
+            border-radius: 50%;
+            top: 40px;
+        }
+        .bear-eye-l { left: 30px; }
+        .bear-eye-r { right: 30px; }
+
+        .bear-snout {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 40%;
+            bottom: 10px;
+            left: 30px;
+        }
+.bear-ear-l { left: 10px; }
         .bear-ear-r { right: 10px; }
         bear-eye-l, .bear-eye-r {
        . position: absolute;
@@ -362,13 +395,6 @@
         { left: 30px; }
         bear-eye-r { right: 30px; }
 
-        .bear-snout {
-         position: absolute;
-        width: 40px;
-        height: 30px;
-        backgrounborder-radius: 40%;
-       bottom: 10px;
-          left: 30px;
             }
         .bear-nose {
             position: absolute;
@@ -391,7 +417,15 @@
         .bear-leg-l { left: 15px; }
         .bear-leg-r { right: 25px; }
 
-        const bear = document.getElementById('cyberBear');
+                .tree {
+             position: absolute;
+             bottom: 0;
+             left: 120px;
+             width: 160px;
+             height: 380px;
+             z-index: 3;
+        }
+const bear = document.getElementById('cyberBear');
         if (bear) 
         {bear.addEventListener ('click', () => {
         bear.style.animationDuration= '2s';
@@ -399,25 +433,15 @@
         bear.style.animationDuration = '5s';}, 2000);});}
 
         
-        .tree {
-             position: absolute;
-             bottom: 0;
-             left: 120px;
-             width: 160px;
-             height: 380px
-             z-index: 3;
-            }
-
-        .trunk {
+                .trunk {
               position: absolute;
               bottom: 0;
               left: 65px;
               width: 30px;
               height: 200px;
               background: #3e2723;
-             }
-
-        .foliage-1, .foliage-2, .foliage-3 {
+        }
+           .foliage-1, .foliage-2, .foliage-3 {
             position: absolute;
             background: #0f5132;
             border-radius: 50%;
@@ -433,124 +457,189 @@
         65% { transform: translateX(0) rotate(0deg); }
         100% { transform: translateX(0) rotate(0deg); }
             }
-     function launchSystem(sectionId, message) {
-         const output = document.getElementById(sectionId);
-         if(output) {
-             output.style.display = "block";
-             output.innerHTML = "[INITIALIZING...] 
-             [LOADING CORE MODULES...] 
-             [CONNECTING TO DARKNET...]";
-   
-             setTimeout(() => {
-                 output.innerHTML = [SUCCESS] ${message}<br><span style="color:#00f0ff">> System 
-             ready. Node online.</span>;
-             }, 1200);
-         }
-              } 
-
-     function saveNotes() {
-         const noteText = document.getElementById('cyber-notes').value; 
-         localStorage.setItem('error_killer_notes', noteText);
-         const status = document.getElementById('notes-status');
-         if(status) {
-         status.style.display = "block";
-         status.innerHTML = "[SYSTEM LOG] Data written to local cache successfully."
-         }
+         </style>
+    <script>
+        function launchSystem(sectionId, message) {
+            const output = document.getElementById(sectionId);
+            if(output) {
+                output.style.display = "block";
+                output.innerHTML = "[INITIALIZING...] <br> [LOADING CORE MODULES...] <br> [CONNECTING TO DARKNET...]";
+                
+                setTimeout(() => {
+                    output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Node online.</span>`;
+                }, 1200);
             }
+        }
+        function saveNotes() {
+            const noteText = document.getElementById('cyber-notes').value; 
+            localStorage.setItem('error_killer_notes', noteText);
+            const status = document.getElementById('notes-status');
+            if(status) {
+                status.style.display = "block";
+                status.innerHTML = "<span style='color:#00f0ff'>[SYSTEM LOG] Data written to local cache successfully.</span>";
+            }
+        }
 
-   window.onload = function() {
-   const savedData = localStorage.getItem('error_killer_notes');
-   if(savedData && document.getElementById('cyber-notes')) {
-   document.getElementById('cyber-notes').value = savedData;
-       }
-   }
+        window.onload = function() {
+            const savedData = localStorage.getItem('error_killer_notes');
+            if(savedData && document.getElementById('cyber-notes')) {
+                document.getElementById('cyber-notes').value = savedData;
+            }
+        }
+    </script>
+</head>
 
- <div class="neon-tree tree-left">
-                 
-         / \
-        /   \
-       /+++++\  
-      /++++++ \
-    /+++++++++\ 
-        |||
-        |||
-        |||
-        |||    
-                 
-       / \
-      /+++\
-     /+++++\ 
-    /++++++ \  
-       |||
-       |||
-       |||
+   <body>
+
+    <!-- Boczne drzewo neonowe ASCII po lewej stronie -->
+    <div class="neon-tree tree-left">
+     /\
+    /  \
+   /++++\
+  /++++++\
+  /++++++\
+    ||||
+    ||||
+    ||||
+    /\
+   /  \
+  /++++\
+    |||
+    |||
+    |||
+    |||
+    ```
+   
+     <!-- Boczne drzewo neonowe ASCII po prawej stronie -->
+    <div class="neon-tree tree-right">
+     /\
+    /  \
+   /++++\
+  /++++++\
+  /++++++\
+    ||||
+    ||||
+    ||||
+    /\
+   /  \
+  /++++\
+    ||
+    ```
+    </div>
+
+             <!-- Woda na dole ekranu -->
+    <div class="cyber-water">
+        <div class="water-waves">~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~</div>
+    </div>
+
+    <!-- Nagłówek strony -->
+    <div class="header">
+        <h1>ErrorKillerMole69</h1>
+        <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV</div>
+    </div>
+
+    <!-- Główny kontener na sekcje -->
+    <div class="container">
         
-    </div> <div class="neon-tree tree-right">
-         /\
-        /  \
-       /++++\ 
-      /++++++\           
-      /++++++\
-        |||
-        |||
-        |||        
+        <!-- SEKCJA 01 -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
+            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
+            <p>&gt; AGENT 01: Instagram & Threads Automation</p>
+            <a href="#" class="punk-btn" onclick="launchSystem('output-01', 'Instagram Agent launched into cyberspace.'); return false;">Run Instagram Agent</a>
+            <p>&gt; AGENT 02: [SYSTEM LOCKED]</p>
+            <a href="#" class="punk-btn" style="opacity: 0.5; cursor: not-allowed;">Awaiting Deployment</a>
+            <div id="output-01" class="status-output"></div>
+        </div>
 
-         /\
-        /  \
-       /++++\ 
-      /++++++\           
-      /++++++\
-        |||
-        |||
-        |||      
+                  <!-- SEKCJA 02 -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 02. ART & GRAPHICS</h2>
+            <p>Visual repository housing graphic elements, cyberpunk concept designs, and creative layouts.</p>
+            <a href="https://behance.net" target="_blank" class="punk-btn">Open Behance Portfolio</a>
+        </div>
 
-          <!-- WODA -->        
-      </div> <div class="cyber-water">  ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ 
-    ~~~~~~~~ ~~~~~~~~</div>
+        <!-- SEKCJA 03 -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
+            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
+            <a href="https://behance.net" target="_blank" class="punk-btn">Initialize Web Portals</a>
+        </div>
 
-             <h1>ERRORKILLERMOLE69</h1>
-    <tittle>VERSATILE ARTIST AND SENIOR DEV </tittle>
-       
-                 
-     // 01. AI AGENTS SUB-ROUTINES
-     Deployment room for autonomous LLM systems, custom web scrapers, and data
-    intelligence units.
-     >AGENT 01: Instagram & Threads Automation  
-     Run Instagram Agent
-    > AGENT 02: [SYSTEM LOCKED]   
-      Awaiting Deployment
 
-      // 02. ART & GRAPHICS
-    Visual repository housing graphic elements,
-    cyberpunk concept designs, 
-    and creative layouts.
-    Open Behance Portfolio
+             <!-- SEKCJA 04 -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
+            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
+            <textarea id="cyber-notes" class="cyber-textarea" placeholder="Enter root logs..."></textarea>
+            <button class="punk-btn" onclick="saveNotes()">Commit to Cache</button>
+            <div id="notes-status" class="status-output"></div>
+        </div>
 
-      // 03. WEB SYSTEMS & APPLICATIONS
-    Production links and sourcemaps for live websites,
-    custom CSS architectures, 
-   and active front-end nodes.Initialize Web Portals   
+        <!-- RAMKA Z JĘZYKAMI I UMIEJĘTNOŚCIAMI -->
+        <div class="terminal-box shineing-box">
+            <h2 class="section-title">// CORE SKILLS & TECH STACK</h2>
+            <div class="SKILLS">
+🐍 Python + Selenium: 💻 (Sieć/Browser) | 🤖 (Automation)
+🟨 JavaScript: ⚡ (dynamics) | 🌐
+💜 Kotlin: 📱 (Mobilne/Android)
+🔥 Spark: 🔥 | ⚡ (Fast processing) | 📊
+⚛️ React: ⚛️ | 💻 (Frontend)
+🔷 BigQuery: 🗄️ (Database) | ☁️ (Chmura)
+🔴 Scala: ⚙️ (Scalability)
+📐 Figma: 📐 (Projects) | 🎨
+🤖 AI / Agents building skills: 🧠 | 🤖 (Robot) | ⚙️ (Algorithms)
+🎨 artistic painting acryle and not only (art/UI) and with 9 graphics programs / create websites.
+🎸 Music: 🎵 (Guitar/Metal) | 🎹 (Keyboards) | singing | production
+            </div>
+        </div>
 
-     // 04. BRAIN-DUMP & KNOWLEDGE
-     BASE Raw system logs, developer documentation,
-    mental notes, and long-term architectural 
-    insights.Commit to Cache
+        <!-- SEKCJA 05: ANIMACJA NIEDŹWIEDZIA I DRZEWA -->
+        <div class="terminal-box">
+            <h2 class="section-title">// 05. CYBER BEAR DEPLOYMENT AREA</h2>
+            <div class="scene">
+                <!-- Niedźwiedź z pełną anatomią -->
+                <div class="bear" id="cyberBear">
+                    <div class="bear-leg-l"></div>
+                    <div class="bear-leg-r"></div>
+                    <div class="bear-body">
+                        <div class="bear-ear-l"></div>
+                        <div class="bear-ear-r"></div>
+                        <div class="bear-head">
+                            <div class="bear-eye-l"></div>
+                            <div class="bear-eye-r"></div>
+                            <div class="bear-snout">
+                                <div class="bear-nose"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-     // SKILLS & TECH STACK
-    🐍 Python + Selenium:
-    💻 (Sieć/Browser) | 🤖 (Automation)
-    🟨 JavaScript: ⚡ (dynamics) | 🌐💜 Kotlin:
-    📱 (Mobilne/Android)🔥 Spark: 🔥 | ⚡ (Fast processing) 
-    | 📊⚛️ React: ⚛️ | 💻 (Frontend)🔷 BigQuery: 
-    🗄️ (Database) | ☁️ (Chmura)🔴 Scala: ⚙️ (Scalability)
-    📐 Figma: 📐 (Projects) | 🎨🤖 AI / Agents building skills:
-    🧠 | 🤖 (Robot) | ⚙️ (Algorithms)
-    🎨 artistic painting acryle and not only (art/UI)
-    and with 9 graphics programs / create websites.
-   🎸 Music: 🎵 (Guitar/Metal) | 🎹 (Keyboards) | singing 
-   | production// 
-        
+                <!-- Drzewo zasłaniające postać -->
+                <div class="tree">
+                    <div class="trunk"></div>
+                    <div class="foliage-1"></div>
+                    <div class="foliage-2"></div>
+                    <div class="foliage-3"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const bear = document.getElementById('cyberBear');
+        if (bear) {
+            bear.addEventListener('click', () => {
+                bear.style.animationDuration = '2s';
+                setTimeout(() => {
+                    bear.style.animationDuration = '5s';
+                }, 2000);
+            });
+        }
+    </script>
 </body>
 </html>
 
-                 
+     
+    
