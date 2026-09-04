@@ -1,815 +1,1508 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ErrorKillerMole69 Portfolio</title>
-    <link rel="stylesheet" href="style.css">
 
-      <script>
+    <style>
         :root {
-            --bg-gradient-start: #2b0414; /* Ciemne bordo */
-            --bg-gradient-end: #12021c;   /* Głęboki fiolet */
-            --neon-blue: #00f0ff;         /* Jasnoniebieskie światło */
-            --neon-green: #39ff14;        /* Jasnozielone światło */
+            --bg-gradient-start: #2b0414;
+            --bg-gradient-end: #12021c;
+            --neon-blue: #00f0ff;
+            --neon-green: #39ff14;
             --text-color: #e2e8f0;
-            --btn-bg: #052e16;            /* Ciemnozielony przycisk */
+            --btn-bg: #052e16;
         }
-           
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+        }
+
         body {
-            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--bg-gradient-start),
+                    var(--bg-gradient-end)
+                );
+
             color: var(--text-color);
             font-family: 'Courier New', Courier, monospace;
+
             margin: 0;
             padding: 20px 20px 120px 20px;
+
             display: flex;
             flex-direction: column;
             align-items: center;
+
             min-height: 100vh;
+
             border: 4px solid var(--neon-blue);
-            box-sizing: border-box;
-            box-shadow: inset 0 0 30px rgba(0, 240, 255, 0.3);
+
+            box-shadow:
+                inset 0 0 30px rgba(0, 240, 255, 0.3);
+
             position: relative;
+
             overflow-x: hidden;
         }
-         
+
+        /* =====================================================
+           BOCZNE DRZEWA NEONOWE
+        ===================================================== */
+
         .neon-tree {
             position: fixed;
+
             top: 50%;
+
             transform: translateY(-50%);
+
             color: var(--neon-green);
+
             font-size: 1.8rem;
+
             line-height: 1.1;
+
             white-space: pre;
-            text-shadow: 0 0 15px var(--neon-green), 0 0 30px var(--neon-green);
+
+            text-shadow:
+                0 0 15px var(--neon-green),
+                0 0 30px var(--neon-green);
+
             user-select: none;
+
             pointer-events: none;
+
             opacity: 0.4;
+
             z-index: 1;
         }
 
-        .tree-left { left: 4%; text-align: left; }
-        .tree-right { right: 4%; text-align: right; }
+        .tree-left {
+            left: 4%;
+            text-align: left;
+        }
+
+        .tree-right {
+            right: 4%;
+            text-align: right;
+        }
+
+        /* =====================================================
+           CYBER WATER
+        ===================================================== */
 
         .cyber-water {
             position: fixed;
+
             bottom: 0;
             left: 0;
+
             width: 100%;
             height: 40px;
-            background: linear-gradient(transparent, rgba(0, 240, 255, 0.15));
+
+            background:
+                linear-gradient(
+                    transparent,
+                    rgba(0, 240, 255, 0.15)
+                );
+
             border-top: 2px dashed var(--neon-blue);
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+
+            box-shadow:
+                0 0 15px rgba(0, 240, 255, 0.6);
+
             z-index: 10;
+
             pointer-events: none;
+
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             overflow: hidden;
         }
 
         .water-waves {
             color: var(--neon-blue);
+
             font-size: 1.2rem;
+
             letter-spacing: 8px;
-            text-shadow: 0 0 8px var(--neon-blue);
+
+            text-shadow:
+                0 0 8px var(--neon-blue);
+
             white-space: nowrap;
-            animation: wave-move 4s linear infinite;
+
+            animation:
+                wave-move 4s linear infinite;
         }
 
         @keyframes wave-move {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-40px); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-40px);
+            }
         }
 
-        /* ANIMACJA CYFROWEJ KACZKI: LOT, UDERZENIE, UPADEK */
+        /* =====================================================
+           CYBER DUCK
+        ===================================================== */
+
         .cyber-duck {
             position: fixed;
+
             z-index: 9;
+
             pointer-events: none;
+
             width: 50px;
             height: 45px;
-            animation: duck-lifecycle 7s linear infinite;
+
+            animation:
+                duck-lifecycle 7s linear infinite;
         }
 
         .duck-body {
             position: absolute;
+
             width: 35px;
             height: 22px;
+
             background: #facc15;
-            border-radius: 15px 15px 10px 10px;
+
+            border-radius:
+                15px 15px 10px 10px;
+
             bottom: 0;
-            box-shadow: 0 0 8px #facc15;
+
+            box-shadow:
+                0 0 8px #facc15;
         }
 
         .duck-head {
             position: absolute;
+
             width: 18px;
             height: 18px;
+
             background: #facc15;
+
             border-radius: 50%;
+
             top: -10px;
-            left: -5px; /* Głową skierowana w lewo pod kątem lotu */
+            left: -5px;
         }
 
         .duck-beak {
             position: absolute;
+
             width: 8px;
             height: 6px;
+
             background: #f97316;
-            border-radius: 5px 0 0 5px;
+
+            border-radius:
+                5px 0 0 5px;
+
             top: 4px;
             left: -6px;
         }
 
         .duck-wing {
             position: absolute;
+
             width: 15px;
             height: 10px;
+
             background: #eab308;
+
             border-radius: 50%;
+
             top: 4px;
             left: 12px;
-            transform-origin: top center;
-            animation: duck-wing-flap 0.2s linear infinite alternate;
+
+            transform-origin:
+                top center;
+
+            animation:
+                duck-wing-flap
+                0.2s linear infinite alternate;
         }
 
         @keyframes duck-lifecycle {
-            /* Start: schowana za prawym drzewem (90% szerokości ekranu) */
+
             0% {
                 top: 40%;
                 left: 90%;
-                transform: rotate(0deg) scaleX(1);
+                transform:
+                    rotate(0deg)
+                    scaleX(1);
+
+                opacity: 1;
             }
-            /* Lot w lewo i uderzenie w lewe drzewo (5% szerokości ekranu) */
+
             60% {
                 top: 30%;
                 left: 5%;
-                transform: rotate(0deg) scaleX(1);
+
+                transform:
+                    rotate(0deg)
+                    scaleX(1);
+
+                opacity: 1;
             }
-            /* Moment zderzenia: obrót do góry nogami i bezwładność */
+
             65% {
                 top: 32%;
                 left: 5%;
-                transform: rotate(140deg) scaleX(1);
+
+                transform:
+                    rotate(140deg)
+                    scaleX(1);
+
+                opacity: 1;
             }
-            /* Pionowy spadek na dół do wody */
+
             90% {
                 top: calc(100vh - 50px);
                 left: 5%;
-                transform: rotate(180deg) scaleX(1);
+
+                transform:
+                    rotate(180deg)
+                    scaleX(1);
+
                 opacity: 1;
             }
-            /* Zanurzenie w wodzie i zniknięcie */
+
             95% {
                 top: calc(100vh - 20px);
                 left: 5%;
-                transform: rotate(180deg) scaleX(1);
+
+                transform:
+                    rotate(180deg)
+                    scaleX(1);
+
                 opacity: 0;
             }
+
             100% {
                 top: 40%;
                 left: 90%;
-                transform: rotate(0deg) scaleX(1);
+
+                transform:
+                    rotate(0deg)
+                    scaleX(1);
+
                 opacity: 0;
             }
         }
 
         @keyframes duck-wing-flap {
-            0% { transform: rotate(-30deg); }
-            100% { transform: rotate(50deg); }
+
+            0% {
+                transform: rotate(-30deg);
+            }
+
+            100% {
+                transform: rotate(50deg);
+            }
         }
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
 
         .header {
             text-align: center;
+
             margin-top: 40px;
+
             position: relative;
+
             z-index: 5;
         }
 
         h1 {
             color: #fff;
+
             font-size: 2.5rem;
+
             text-transform: uppercase;
+
             letter-spacing: 4px;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+
+            text-shadow:
+                0 0 10px var(--neon-blue),
+                0 0 20px var(--neon-blue);
+
             margin-bottom: 5px;
         }
 
         .subtitle {
             color: var(--neon-green);
+
             font-size: 1.2rem;
-            text-shadow: 0 0 8px var(--neon-green);
+
+            text-shadow:
+                0 0 8px var(--neon-green);
+
             font-weight: bold;
         }
 
+        /* =====================================================
+           MAIN CONTAINER
+        ===================================================== */
+
         .container {
             max-width: 800px;
+
             width: 100%;
+
             margin-top: 30px;
+
             display: flex;
+
             flex-direction: column;
+
             gap: 25px;
+
             position: relative;
+
             z-index: 5;
         }
 
+        /* =====================================================
+           TERMINAL BOX
+        ===================================================== */
+
         .terminal-box {
-            background: rgba(0, 0, 0, 0.85);
-            border: 2px solid var(--neon-blue); 
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.4); 
+            background:
+                rgba(0, 0, 0, 0.85);
+
+            border:
+                2px solid var(--neon-blue);
+
+            box-shadow:
+                0 0 15px
+                rgba(0, 240, 255, 0.4);
+
             padding: 20px;
+
             border-radius: 5px;
         }
 
         .shineing-box {
-            border: 2px dashed var(--neon-green);
+            border:
+                2px dashed var(--neon-green);
+
             padding: 20px;
-            background: rgba(0, 0, 0, 0.85);
+
+            background:
+                rgba(0, 0, 0, 0.85);
+
             border-radius: 5px;
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.2);
+
+            box-shadow:
+                0 0 15px
+                rgba(57, 255, 20, 0.2);
         }
 
         .section-title {
             color: var(--neon-green);
-            text-shadow: 0 0 5px var(--neon-green);
+
+            text-shadow:
+                0 0 5px var(--neon-green);
+
             margin-top: 0;
+
             font-size: 1.3rem;
         }
 
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
         .punk-btn {
-            background-color: var(--btn-bg);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
+            background-color:
+                var(--btn-bg);
+
+            color:
+                var(--neon-green);
+
+            font-family:
+                'Courier New',
+                Courier,
+                monospace;
+
             font-size: 1rem;
+
             font-weight: bold;
+
             text-transform: uppercase;
-            padding: 10px 20px;
+
+            padding:
+                10px 20px;
+
             margin-top: 15px;
-            border: 2px solid var(--neon-green);
+
+            border:
+                2px solid var(--neon-green);
+
             border-radius: 4px;
+
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-            text-shadow: 0 0 5px var(--neon-green);
-            transition: all 0.3s ease;
+
+            box-shadow:
+                0 0 10px
+                rgba(57, 255, 20, 0.3);
+
+            text-shadow:
+                0 0 5px
+                var(--neon-green);
+
+            transition:
+                all 0.3s ease;
+
             text-decoration: none;
+
             display: inline-block;
         }
 
         .punk-btn:hover {
-            background-color: var(--neon-green);
+            background-color:
+                var(--neon-green);
+
             color: #000;
-            box-shadow: 0 0 20px var(--neon-green);
+
+            box-shadow:
+                0 0 20px
+                var(--neon-green);
+
             text-shadow: none;
-            transform: scale(1.02);
+
+            transform:
+                scale(1.02);
         }
+
+        /* =====================================================
+           STATUS
+        ===================================================== */
 
         .status-output {
             margin-top: 15px;
+
             padding: 10px;
-            background: rgba(0, 20, 0, 0.4);
-            border-left: 3px solid var(--neon-green);
+
+            background:
+                rgba(0, 20, 0, 0.4);
+
+            border-left:
+                3px solid var(--neon-green);
+
             font-size: 0.9rem;
+
             color: #a7f3d0;
+
             display: none;
         }
 
+        /* =====================================================
+           TEXTAREA
+        ===================================================== */
+
         .cyber-textarea {
             width: 100%;
+
             height: 150px;
-            background: rgba(0, 10, 5, 0.8);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
-            font-family: 'Courier New', Courier, monospace;
+
+            background:
+                rgba(0, 10, 5, 0.8);
+
+            border:
+                1px solid var(--neon-green);
+
+            color:
+                var(--neon-green);
+
+            font-family:
+                'Courier New',
+                Courier,
+                monospace;
+
             padding: 10px;
+
             box-sizing: border-box;
+
             margin-top: 15px;
+
             resize: vertical;
+
             outline: none;
-            box-shadow: 0 0 5px rgba(57, 255, 20, 0.2);
+
+            box-shadow:
+                0 0 5px
+                rgba(57, 255, 20, 0.2);
         }
 
         .cyber-textarea:focus {
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.5);
+            box-shadow:
+                0 0 15px
+                rgba(57, 255, 20, 0.5);
         }
 
+        /* =====================================================
+           SKILLS
+        ===================================================== */
+
         .SKILLS {
-            font-family: 'Courier New', Courier, monospace;
+            font-family:
+                'Courier New',
+                Courier,
+                monospace;
+
             line-height: 1.8;
+
             color: #fff;
+
             white-space: pre-line;
         }
 
-        /* SCENA Z NIEDŹWIEDZIEM */
+        /* =====================================================
+           BEAR SCENE
+        ===================================================== */
+
         .scene {
             position: relative;
+
             width: 100%;
+
             max-width: 600px;
+
             height: 400px;
-            border-bottom: 4px solid #1a3644;
-            margin: 20px auto 0 auto;
-            background: radial-gradient(circle, #101e2b 0%, #050a0f 100%);
+
+            border-bottom:
+                4px solid #1a3644;
+
+            margin:
+                20px auto 0 auto;
+
+            background:
+                radial-gradient(
+                    circle,
+                    #101e2b 0%,
+                    #050a0f 100%
+                );
+
             border-radius: 8px;
+
             overflow: hidden;
         }
 
+        /* =====================================================
+           BEAR
+        ===================================================== */
+
         .bear {
             position: absolute;
+
             bottom: 0;
-            left: 220px; 
+
+            left: 220px;
+
             width: 140px;
+
             height: 260px;
-            z-index: 1; 
-            animation: peek-a-boo 5s ease-in-out infinite;
+
+            z-index: 1;
+
+            animation:
+                peek-a-boo
+                5s ease-in-out infinite;
         }
 
-                .bear-head {
-            position: absolute;
-            top: 20px;
-            left: 15px;
-            width: 100px;
-            height: 90px;
-            background: #ffffff;
-            border-radius: 50%;
-            box-shadow: inset -5px -5px 15px #cbd5e1;
-        }
-.bear-body {
-            position: absolute;
-            bottom: 0;
-            width: 130px;
-            height: 200px;
-            background: #eef2f7;
-            border-radius: 40px 40px 10px 10px;
-            box-shadow: inset -15px 0 20px #cbd5e1;
-        }
-
-              .bear-head {
-            position: absolute;
-            top: 20px;
-            left: 15px;
-            width: 100px;
-            height: 90px;
-            background: #ffffff;
-            border-radius: 50%;
-            box-shadow: inset -5px -5px 15px #cbd5e1;
-        }      
-        .bear-ear-l, .bear-ear-r {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: #eef2f7;
-            border-radius: 50%;
-            top: 10px;
-        }
-
-               .bear-ear-l { left: 10px; }
-        .bear-ear-r { right: 10px; }
-        .bear-eye-l, .bear-eye-r {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #0f172a;
-            border-radius: 50%;
-            top: 40px;
-        }
-        .bear-eye-l { left: 30px; }
-        .bear-eye-r { right: 30px; }
-
-        .bear-snout {
-            position: absolute;
-            width: 40px;
-            height: 30px;
-            background: #e2e8f0;
-            border-radius: 40%;
-            bottom: 10px;
-            left: 30px;
-        }
-.bear-ear-l { left: 10px; }
-        .bear-ear-r { right: 10px; }
-        bear-eye-l, .bear-eye-r {
-       . position: absolute;
-            width: 10px;
-            height: 10px;
-            background:#0f172a;;
-            border-radius:50%;
-            top: 40px;}
-        .bear-eye-l 
-        { left: 30px; }
-        bear-eye-r { right: 30px; }
-
-            }
-        .bear-nose {
-            position: absolute;
-            width: 12px;
-            height: 8px;
-            background: #0f172a;
-            border-radius: 50%;
-            top: 5px;
-            left: 14px;
-            }
-        
-       .bear-leg-l, .bear-leg-r {
-             position: absolute;
-             bottom: 0;
-             width:  35px;
-             height: 40px;
-             background: #cbd5e1;
-            border-radius: 10px;
-       }
-        .bear-leg-l { left: 15px; }
-        .bear-leg-r { right: 25px; }
-
-                .tree {
-             position: absolute;
-             bottom: 0;
-             left: 120px;
-             width: 160px;
-             height: 380px;
-             z-index: 3;
-        }
-const bear = document.getElementById('cyberBear');
-        if (bear) 
-        {bear.addEventListener ('click', () => {
-        bear.style.animationDuration= '2s';
-        setTimeout(() =>  {
-        bear.style.animationDuration = '5s';}, 2000);});}
-
-        
-                .trunk {
-              position: absolute;
-              bottom: 0;
-              left: 65px;
-              width: 30px;
-              height: 200px;
-              background: #3e2723;
-        }
-           .foliage-1, .foliage-2, .foliage-3 {
-            position: absolute;
-            background: #0f5132;
-            border-radius: 50%;
-            }
-          .foliage-1 { width: 140px; height: 140px; bottom: 160px; left: 10px; }
-          .foliage-2 { width: 120px; height: 120px; bottom: 220px; left: 20px; }
-          .foliage-3 { width: 90px; height: 90px; bottom: 280px; left: 35px; }
-
-        @keyframes peek-a-boo {
-        0% { transform: translateX(0) rotate(0deg); }
-        20% { transform: translateX(-150px) rotate(-3deg); }
-        45% { transform: translateX(-150px) rotate(0deg); }
-        65% { transform: translateX(0) rotate(0deg); }
-        100% { transform: translateX(0) rotate(0deg); }
-            }
-         </style>
-    <script>
-        function launchSystem(sectionId, message) {
-            const output = document.getElementById(sectionId);
-            if(output) {
-                output.style.display = "block";
-                output.innerHTML = "[INITIALIZING...] <br> [LOADING CORE MODULES...] <br> [CONNECTING TO DARKNET...]";
-                
-                setTimeout(() => {
-                    output.innerHTML = `[SUCCESS] ${message}<br><span style="color:#00f0ff">> System ready. Node online.</span>`;
-                }, 1200);
-            }
-        }
-        function saveNotes() {
-            const noteText = document.getElementById('cyber-notes').value; 
-            localStorage.setItem('error_killer_notes', noteText);
-            const status = document.getElementById('notes-status');
-            if(status) {
-                status.style.display = "block";
-                status.innerHTML = "<span style='color:#00f0ff'>[SYSTEM LOG] Data written to local cache successfully.</span>";
-            }
-        }
-
-        window.onload = function() {
-            const savedData = localStorage.getItem('error_killer_notes');
-            if(savedData && document.getElementById('cyber-notes')) {
-                document.getElementById('cyber-notes').value = savedData;
-            }
-        }
-    </script>
-</head>
-
-   <body>
-
-    <!-- Boczne drzewo neonowe ASCII po lewej stronie -->
-    <div class="neon-tree tree-left">
-     /\
-    /  \
-   /++++\
-  /++++++\
-  /++++++\
-    ||||
-    ||||
-    ||||
-    /\
-   /  \
-  /++++\
-    |||
-    |||
-    |||
-    |||
-    ```
-   
-     <!-- Boczne drzewo neonowe ASCII po prawej stronie -->
-    <div class="neon-tree tree-right">
-     /\
-    /  \
-   /++++\
-  /++++++\
-  /++++++\
-    ||||
-    ||||
-    ||||
-    /\
-   /  \
-  /++++\
-    ||
-    ```
-    </div>
-
-             <!-- Woda na dole ekranu -->
-    <div class="cyber-water">
-        <div class="water-waves">~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~</div>
-    </div>
-
-    <!-- Nagłówek strony -->
-    <div class="header">
-        <h1>ErrorKillerMole69</h1>
-        <div class="subtitle">VERSATILE ARTIST AND SENIOR DEV</div>
-    </div>
-
-    <!-- Główny kontener na sekcje -->
-    <div class="container">
-        
-        <!-- SEKCJA 01 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 01. AI AGENTS SUB-ROUTINES</h2>
-            <p>Deployment room for autonomous LLM systems, custom web scrapers, and data intelligence units.</p>
-            <p>&gt; AGENT 01: Instagram & Threads Automation</p>
-            <a href="#" class="punk-btn" onclick="launchSystem('output-01', 'Instagram Agent launched into cyberspace.'); return false;">Run Instagram Agent</a>
-            <p>&gt; AGENT 02: [SYSTEM LOCKED]</p>
-            <a href="#" class="punk-btn" style="opacity: 0.5; cursor: not-allowed;">Awaiting Deployment</a>
-            <div id="output-01" class="status-output"></div>
-        </div>
-</style>
-
-                  <!-- SEKCJA 02 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 02. ART & GRAPHICS</h2>
-            <p>Visual repository housing graphic elements, cyberpunk concept designs, and creative layouts.</p>
-            <a href="https://behance.net" target="_blank" class="punk-btn">Open Behance Portfolio</a>
-        </div>
-
-        <!-- SEKCJA 03 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 03. WEB SYSTEMS & APPLICATIONS</h2>
-            <p>Production links and sourcemaps for live websites, custom CSS architectures, and active front-end nodes.</p>
-            <a href="https://behance.net" target="_blank" class="punk-btn">Initialize Web Portals</a>
-        </div>
-
-
-             <!-- SEKCJA 04 -->
-        <div class="terminal-box">
-            <h2 class="section-title">// 04. BRAIN-DUMP & KNOWLEDGE BASE</h2>
-            <p>Raw system logs, developer documentation, mental notes, and long-term architectural insights.</p>
-            <textarea id="cyber-notes" class="cyber-textarea" placeholder="Enter root logs..."></textarea>
-            <button class="punk-btn" onclick="saveNotes()">Commit to Cache</button>
-            <div id="notes-status" class="status-output"></div>
-        </div>
-
-        <!-- RAMKA Z JĘZYKAMI I UMIEJĘTNOŚCIAMI -->
-        <div class="terminal-box shineing-box">
-            <h2 class="section-title">// CORE SKILLS & TECH STACK</h2>
-            <div class="SKILLS">
-🐍 Python + Selenium: 💻 (Sieć/Browser) | 🤖 (Automation)
-🟨 JavaScript: ⚡ (dynamics) | 🌐
-💜 Kotlin: 📱 (Mobilne/Android)
-🔥 Spark: 🔥 | ⚡ (Fast processing) | 📊
-⚛️ React: ⚛️ | 💻 (Frontend)
-🔷 BigQuery: 🗄️ (Database) | ☁️ (Chmura)
-🔴 Scala: ⚙️ (Scalability)
-📐 Figma: 📐 (Projects) | 🎨
-🤖 AI / Agents building skills: 🧠 | 🤖 (Robot) | ⚙️ (Algorithms)
-🎨 artistic painting acryle and not only (art/UI) and with 9 graphics programs / create websites.
-🎸 Music: 🎵 (Guitar/Metal) | 🎹 (Keyboards) | singing | production
-            </div>
-        </div>
-
-        <!-- SEKCJA 05: ANIMACJA NIEDŹWIEDZIA I DRZEWA -->
-        <div class="terminal-box">
-            <h2 class="section-title">cybber brown bear/h2>
-            <div class="scene">
-                <!-- Niedźwiedź z pełną anatomią -->
-                <div class="bear" id="cyberBear">
-                    <div class="bear-leg-l"></div>
-                    <div class="bear-leg-r"></div>
-                    <div class="bear-body">
-                        <div class="bear-ear-l"></div>
-                        <div class="bear-ear-r"></div>
-                        <div class="bear-head">
-                            <div class="bear-eye-l"></div>
-                            <div class="bear-eye-r"></div>
-                            <div class="bear-snout">
-                                <div class="bear-nose"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Drzewo zasłaniające postać -->
-                <div class="tree">
-                    <div class="trunk"></div>
-                    <div class="foliage-1"></div>
-                    <div class="foliage-2"></div>
-                    <div class="foliage-3"></div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        const bear = document.getElementById('cyberBear');
-        if (bear) {
-            bear.addEventListener('click', () => {
-                bear.style.animationDuration = '2s';
-                setTimeout(() => {
-                    bear.style.animationDuration = '5s';
-                }, 2000);
-            });
-        }
- 
-    </script>
-       
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cyfrowy Niedźwiedź i Drzewo</title>
-    <style>
-        /* Stylizacja tła - cyfrowy, ciemny las */
-        body {
-            margin: 0;
-            padding: 0;
-            background: radial-gradient(circle, #101e2b 0%, #050a0f 100%);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            font-family: sans-serif;
-        }
-
-        /* Scena cyfrowa */
-        .scene {
-            position: relative;
-            width: 600px;
-            height: 500px;
-            border-bottom: 4px solid #1a3644;
-        }
-
-        /* CYFROWY BRĄZOWY NIEDŹWIEDŹ (Styl Geometryczny/Low-Poly) */
-        .bear {
-            position: absolute;
-            bottom: 0;
-            left: 220px; /* Pozycja startowa schowana za drzewem */
-            width: 140px;
-            height: 260px;
-            z-index: 1; /* Za drzewem */
-            
-            /* ANIMACJA: nazwa czas_trwania typ_pętli nieskończenie */
-            animation: peek-a-boo 5s ease-in-out infinite;
-        }
-
-        /* Elementy anatomii misia zrobione z CSS */
         .bear-body {
             position: absolute;
+
             bottom: 0;
+
             width: 130px;
+
             height: 200px;
+
             background: #eef2f7;
-            border-radius: 40px 40px 10px 10px;
-            box-shadow: inset -15px 0 20px #cbd5e1;
+
+            border-radius:
+                40px 40px 10px 10px;
+
+            box-shadow:
+                inset -15px 0 20px #cbd5e1;
         }
 
         .bear-head {
             position: absolute;
+
             top: 20px;
+
             left: 15px;
+
             width: 100px;
+
             height: 90px;
+
             background: #ffffff;
+
             border-radius: 50%;
-            box-shadow: inset -5px -5px 15px #cbd5e1;
+
+            box-shadow:
+                inset -5px -5px 15px #cbd5e1;
         }
 
-        .bear-ear-l, .bear-ear-r {
+        .bear-ear-l,
+        .bear-ear-r {
             position: absolute;
+
             width: 30px;
+
             height: 30px;
+
             background: #eef2f7;
+
             border-radius: 50%;
+
             top: 10px;
         }
-        .bear-ear-l { left: 10px; }
-        .bear-ear-r { right: 10px; }
 
-        .bear-eye-l, .bear-eye-r {
+        .bear-ear-l {
+            left: 10px;
+        }
+
+        .bear-ear-r {
+            right: 10px;
+        }
+
+        .bear-eye-l,
+        .bear-eye-r {
             position: absolute;
+
             width: 10px;
+
             height: 10px;
+
             background: #0f172a;
+
             border-radius: 50%;
+
             top: 40px;
         }
-        .bear-eye-l { left: 30px; }
-        .bear-eye-r { right: 30px; }
+
+        .bear-eye-l {
+            left: 30px;
+        }
+
+        .bear-eye-r {
+            right: 30px;
+        }
 
         .bear-snout {
             position: absolute;
+
             width: 40px;
+
             height: 30px;
+
             background: #e2e8f0;
+
             border-radius: 40%;
+
             bottom: 15px;
+
             left: 30px;
         }
 
         .bear-nose {
             position: absolute;
+
             width: 14px;
+
             height: 10px;
+
             background: #0f172a;
+
             border-radius: 50%;
+
             top: 5px;
+
             left: 13px;
         }
 
-        /* Łapy stojącego niedźwiedzia */
-        .bear-leg-l, .bear-leg-r {
+        .bear-leg-l,
+        .bear-leg-r {
             position: absolute;
+
             bottom: 0;
+
             width: 35px;
+
             height: 60px;
+
             background: #cbd5e1;
+
             border-radius: 10px;
         }
-        .bear-leg-l { left: 15px; }
-        .bear-leg-r { right: 15px; }
 
+        .bear-leg-l {
+            left: 15px;
+        }
 
-        /* CYFROWE DRZEWO */
+        .bear-leg-r {
+            right: 15px;
+        }
+
+        /* =====================================================
+           TREE IN FRONT OF BEAR
+        ===================================================== */
+
         .tree {
             position: absolute;
+
             bottom: 0;
-            left: 200px; /* Wyśrodkowane przed niedźwiedziem */
+
+            left: 200px;
+
             width: 160px;
+
             height: 400px;
-            z-index: 2; /* Przed niedźwiedziem */
+
+            z-index: 2;
+
             pointer-events: none;
         }
 
         .trunk {
             position: absolute;
+
             bottom: 0;
+
             left: 60px;
+
             width: 40px;
+
             height: 200px;
+
             background: #2e1c0c;
-            border-radius: 5px 5px 0 0;
+
+            border-radius:
+                5px 5px 0 0;
         }
 
-        /* Cyfrowa korona drzewa (warstwy geometryczne) */
-        .foliage-1, .foliage-2, .foliage-3 {
+        .foliage-1,
+        .foliage-2,
+        .foliage-3 {
             position: absolute;
-            border-left: 80px solid transparent;
-            border-right: 80px solid transparent;
+
+            border-left:
+                80px solid transparent;
+
+            border-right:
+                80px solid transparent;
+
             width: 0;
+
             height: 0;
         }
 
         .foliage-1 {
             bottom: 120px;
-            border-bottom: 140px solid #0f5132;
+
+            border-bottom:
+                140px solid #0f5132;
         }
 
         .foliage-2 {
             bottom: 200px;
-            border-bottom: 120px solid #146c43;
-            transform: scale(0.9);
+
+            border-bottom:
+                120px solid #146c43;
+
+            transform:
+                scale(0.9);
         }
 
         .foliage-3 {
             bottom: 270px;
-            border-bottom: 100px solid #198754;
-            transform: scale(0.8);
+
+            border-bottom:
+                100px solid #198754;
+
+            transform:
+                scale(0.8);
         }
-  </style>
-  </script>
- </body>
+
+        /* =====================================================
+           BEAR ANIMATION
+        ===================================================== */
+
+        @keyframes peek-a-boo {
+
+            0% {
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+            }
+
+            20% {
+                transform:
+                    translateX(-150px)
+                    rotate(-3deg);
+            }
+
+            45% {
+                transform:
+                    translateX(-150px)
+                    rotate(0deg);
+            }
+
+            65% {
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+            }
+
+            100% {
+                transform:
+                    translateX(0)
+                    rotate(0deg);
+            }
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .neon-tree {
+                opacity: 0.15;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            body {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
+            .neon-tree {
+                display: none;
+            }
+
+            .container {
+                width: 100%;
+            }
+
+            .scene {
+                height: 380px;
+            }
+
+            .bear {
+                left: calc(50% - 70px);
+            }
+
+            .tree {
+                left: calc(50% - 80px);
+            }
+
+            @keyframes peek-a-boo {
+
+                0% {
+                    transform:
+                        translateX(0)
+                        rotate(0deg);
+                }
+
+                20% {
+                    transform:
+                        translateX(-100px)
+                        rotate(-3deg);
+                }
+
+                45% {
+                    transform:
+                        translateX(-100px)
+                        rotate(0deg);
+                }
+
+                65% {
+                    transform:
+                        translateX(0)
+                        rotate(0deg);
+                }
+
+                100% {
+                    transform:
+                        translateX(0)
+                        rotate(0deg);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =====================================================
+         BOCZNE DRZEWO NEONOWE — LEWA STRONA
+    ====================================================== -->
+
+    <div class="neon-tree tree-left">
+ /\
+/  \
+/++++\
+/++++++\
+/++++++\
+  ||||
+  ||||
+  ||||
+  /\
+ /  \
+/++++\
+  |||
+  |||
+  |||
+  |||
+    </div>
+
+
+    <!-- =====================================================
+         BOCZNE DRZEWO NEONOWE — PRAWA STRONA
+    ====================================================== -->
+
+    <div class="neon-tree tree-right">
+ /\
+/  \
+/++++\
+/++++++\
+/++++++\
+  ||||
+  ||||
+  ||||
+  /\
+ /  \
+/++++\
+  ||
+  ||
+  ||
+  ||
+    </div>
+
+
+    <!-- =====================================================
+         CYBER DUCK
+    ====================================================== -->
+
+    <div class="cyber-duck" aria-hidden="true">
+
+        <div class="duck-body"></div>
+
+        <div class="duck-head"></div>
+
+        <div class="duck-beak"></div>
+
+        <div class="duck-wing"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         CYBER WATER
+    ====================================================== -->
+
+    <div class="cyber-water">
+
+        <div class="water-waves">
+            ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
+            ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <div class="header">
+
+        <h1>
+            ErrorKillerMole69
+        </h1>
+
+        <div class="subtitle">
+            VERSATILE ARTIST AND SENIOR DEV
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         MAIN CONTAINER
+    ====================================================== -->
+
+    <div class="container">
+
+
+        <!-- =================================================
+             SEKCJA 01
+        ================================================== -->
+
+        <div class="terminal-box">
+
+            <h2 class="section-title">
+                // 01. AI AGENTS SUB-ROUTINES
+            </h2>
+
+            <p>
+                Deployment room for autonomous LLM systems,
+                custom web scrapers, and data intelligence units.
+            </p>
+
+            <p>
+                &gt; AGENT 01:
+                Instagram &amp; Threads Automation
+            </p>
+
+            <a
+                href="#"
+                class="punk-btn"
+                onclick="
+                    launchSystem(
+                        'output-01',
+                        'Instagram Agent launched into cyberspace.'
+                    );
+                    return false;
+                "
+            >
+                Run Instagram Agent
+            </a>
+
+            <p>
+                &gt; AGENT 02: [SYSTEM LOCKED]
+            </p>
+
+            <a
+                href="#"
+                class="punk-btn"
+                style="
+                    opacity: 0.5;
+                    cursor: not-allowed;
+                "
+                onclick="return false;"
+            >
+                Awaiting Deployment
+            </a>
+
+            <div
+                id="output-01"
+                class="status-output"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             SEKCJA 02
+        ================================================== -->
+
+        <div class="terminal-box">
+
+            <h2 class="section-title">
+                // 02. ART &amp; GRAPHICS
+            </h2>
+
+            <p>
+                Visual repository housing graphic elements,
+                cyberpunk concept designs, and creative layouts.
+            </p>
+
+            <a
+                href="https://behance.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="punk-btn"
+            >
+                Open Behance Portfolio
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             SEKCJA 03
+        ================================================== -->
+
+        <div class="terminal-box">
+
+            <h2 class="section-title">
+                // 03. WEB SYSTEMS &amp; APPLICATIONS
+            </h2>
+
+            <p>
+                Production links and sourcemaps for live websites,
+                custom CSS architectures, and active front-end nodes.
+            </p>
+
+            <a
+                href="https://behance.net"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="punk-btn"
+            >
+                Initialize Web Portals
+            </a>
+
+        </div>
+
+
+        <!-- =================================================
+             SEKCJA 04
+        ================================================== -->
+
+        <div class="terminal-box">
+
+            <h2 class="section-title">
+                // 04. BRAIN-DUMP &amp; KNOWLEDGE BASE
+            </h2>
+
+            <p>
+                Raw system logs, developer documentation,
+                mental notes, and long-term architectural insights.
+            </p>
+
+            <textarea
+                id="cyber-notes"
+                class="cyber-textarea"
+                placeholder="Enter root logs..."
+            ></textarea>
+
+            <button
+                class="punk-btn"
+                type="button"
+                onclick="saveNotes()"
+            >
+                Commit to Cache
+            </button>
+
+            <div
+                id="notes-status"
+                class="status-output"
+            ></div>
+
+        </div>
+
+
+        <!-- =================================================
+             RAMKA Z JĘZYKAMI I UMIEJĘTNOŚCIAMI
+        ================================================== -->
+
+        <div class="terminal-box shineing-box">
+
+            <h2 class="section-title">
+                // CORE SKILLS &amp; TECH STACK
+            </h2>
+
+            <div class="SKILLS">
+
+🐍 Python + Selenium:
+💻 (Sieć/Browser) | 🤖 (Automation)
+
+🟨 JavaScript:
+⚡ (dynamics) | 🌐
+
+💜 Kotlin:
+📱 (Mobilne/Android)
+
+🔥 Spark:
+🔥 | ⚡ (Fast processing) | 📊
+
+⚛️ React:
+⚛️ | 💻 (Frontend)
+
+🔷 BigQuery:
+🗄️ (Database) | ☁️ (Chmura)
+
+🔴 Scala:
+⚙️ (Scalability)
+
+📐 Figma:
+📐 (Projects) | 🎨
+
+🤖 AI / Agents building skills:
+🧠 | 🤖 (Robot) | ⚙️ (Algorithms)
+
+🎨 artistic painting acryle and not only
+(art/UI) and with 9 graphics programs /
+create websites.
+
+🎸 Music:
+🎵 (Guitar/Metal) |
+🎹 (Keyboards) |
+singing |
+production
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             SEKCJA 05 — ANIMACJA NIEDŹWIEDZIA I DRZEWA
+        ================================================== -->
+
+        <div class="terminal-box">
+
+            <h2 class="section-title">
+                cybber brown bear
+            </h2>
+
+            <div class="scene">
+
+
+                <!-- =========================================
+                     NIEDŹWIEDŹ
+                ========================================== -->
+
+                <div
+                    class="bear"
+                    id="cyberBear"
+                >
+
+                    <div class="bear-leg-l"></div>
+
+                    <div class="bear-leg-r"></div>
+
+                    <div class="bear-body">
+
+                        <div class="bear-ear-l"></div>
+
+                        <div class="bear-ear-r"></div>
+
+                        <div class="bear-head">
+
+                            <div
+                                class="bear-eye-l"
+                            ></div>
+
+                            <div
+                                class="bear-eye-r"
+                            ></div>
+
+                            <div class="bear-snout">
+
+                                <div
+                                    class="bear-nose"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================================
+                     DRZEWO ZASŁANIAJĄCE NIEDŹWIEDZIA
+                ========================================== -->
+
+                <div class="tree">
+
+                    <div class="trunk"></div>
+
+                    <div class="foliage-1"></div>
+
+                    <div class="foliage-2"></div>
+
+                    <div class="foliage-3"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =================================================
+           AI AGENT SYSTEM
+        ================================================== */
+
+        function launchSystem(
+            sectionId,
+            message
+        ) {
+
+            const output =
+                document.getElementById(
+                    sectionId
+                );
+
+            if (!output) {
+                return;
+            }
+
+            output.style.display =
+                "block";
+
+            output.innerHTML =
+                "[INITIALIZING...] <br>" +
+                "[LOADING CORE MODULES...] <br>" +
+                "[CONNECTING TO DARKNET...]";
+
+            setTimeout(
+                () => {
+
+                    output.innerHTML =
+                        `[SUCCESS] ${message}<br>` +
+                        `<span style="color:#00f0ff">` +
+                        `&gt; System ready. Node online.` +
+                        `</span>`;
+
+                },
+                1200
+            );
+        }
+
+
+        /* =================================================
+           BRAIN-DUMP / LOCAL STORAGE
+        ================================================== */
+
+        function saveNotes() {
+
+            const textarea =
+                document.getElementById(
+                    'cyber-notes'
+                );
+
+            if (!textarea) {
+                return;
+            }
+
+            const noteText =
+                textarea.value;
+
+            localStorage.setItem(
+                'error_killer_notes',
+                noteText
+            );
+
+            const status =
+                document.getElementById(
+                    'notes-status'
+                );
+
+            if (status) {
+
+                status.style.display =
+                    "block";
+
+                status.innerHTML =
+                    "<span style='color:#00f0ff'>" +
+                    "[SYSTEM LOG] " +
+                    "Data written to local cache successfully." +
+                    "</span>";
+            }
+        }
+
+
+        /* =================================================
+           LOAD SAVED NOTES
+        ================================================== */
+
+        window.addEventListener(
+            "DOMContentLoaded",
+            () => {
+
+                const savedData =
+                    localStorage.getItem(
+                        'error_killer_notes'
+                    );
+
+                const textarea =
+                    document.getElementById(
+                        'cyber-notes'
+                    );
+
+                if (
+                    savedData !== null &&
+                    textarea
+                ) {
+
+                    textarea.value =
+                        savedData;
+                }
+
+            }
+        );
+
+
+        /* =================================================
+           BEAR CLICK INTERACTION
+        ================================================== */
+
+        const bear =
+            document.getElementById(
+                'cyberBear'
+            );
+
+        if (bear) {
+
+            bear.addEventListener(
+                'click',
+                () => {
+
+                    bear.style.animationDuration =
+                        '2s';
+
+                    setTimeout(
+                        () => {
+
+                            bear.style.animationDuration =
+                                '5s';
+
+                        },
+                        2000
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
 </html>
 
-
-     
-    
