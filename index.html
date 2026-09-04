@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ErrorKillerMole69 Portfolio</title>
 
-
 <style>
     :root {
         --bg-gradient-start: #2b0414;
@@ -77,6 +76,7 @@
 
     /* =====================================================
        BOCZNE CYFROWE DRZEWA
+       STAŁE ŚWIATŁO — BEZ PULSOWANIA
     ===================================================== */
 
     .neon-tree {
@@ -124,6 +124,7 @@
         z-index:
             1;
 
+        /* Stała jasność */
         text-shadow:
             0 0 5px #39ff14,
             0 0 10px #39ff14,
@@ -136,8 +137,8 @@
             drop-shadow(0 0 15px rgba(57, 255, 20, 0.9))
             drop-shadow(0 0 30px rgba(57, 255, 20, 0.55));
 
-        animation:
-            tree-pulse 3s ease-in-out infinite;
+        /* BRAK ANIMACJI / BRAK PULSOWANIA */
+        animation: none;
     }
 
     .tree-left {
@@ -146,28 +147,6 @@
 
     .tree-right {
         right: 2%;
-        animation-delay: 1.5s;
-    }
-
-    @keyframes tree-pulse {
-
-        0%,
-        100% {
-            opacity: 0.78;
-
-            filter:
-                drop-shadow(0 0 6px #39ff14)
-                drop-shadow(0 0 14px rgba(57, 255, 20, 0.7));
-        }
-
-        50% {
-            opacity: 1;
-
-            filter:
-                drop-shadow(0 0 10px #39ff14)
-                drop-shadow(0 0 24px rgba(57, 255, 20, 1))
-                drop-shadow(0 0 45px rgba(57, 255, 20, 0.7));
-        }
     }
 
 
@@ -1354,13 +1333,11 @@
         }
     }
 </style>
-```
 
 </head>
 
 <body>
 
-```
 <!-- =====================================================
      LEWE CYFROWE DRZEWO
 ====================================================== -->
@@ -1371,8 +1348,6 @@
   /####\
  /######\
 /########\
-```
-
 /##########
 /############
 /##############
@@ -1388,9 +1363,9 @@
 ||||
 ||||
 ||||
-|||| </div>
+||||
+</div>
 
-```
 <!-- =====================================================
      PRAWE CYFROWE DRZEWO
 ====================================================== -->
@@ -1401,8 +1376,6 @@
   /####\
  /######\
 /########\
-```
-
 /##########
 /############
 /##############
@@ -1418,22 +1391,23 @@
 ||||
 ||||
 ||||
-|||| </div>
+||||
+</div>
 
-```
 <!-- =====================================================
      CYBER DUCK
 ====================================================== -->
 
 <div class="cyber-duck" aria-hidden="true">
 
-    <div class="duck-body"></div>
-    <div class="duck-head"></div>
-    <div class="duck-beak"></div>
-    <div class="duck-wing"></div>
+```
+<div class="duck-body"></div>
+<div class="duck-head"></div>
+<div class="duck-beak"></div>
+<div class="duck-wing"></div>
+```
 
 </div>
-
 
 <!-- =====================================================
      CYBER WATER
@@ -1441,13 +1415,14 @@
 
 <div class="cyber-water">
 
-    <div class="water-waves">
-        ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
-        ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
-    </div>
+```
+<div class="water-waves">
+    ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
+    ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
+</div>
+```
 
 </div>
-
 
 <!-- =====================================================
      HEADER
@@ -1455,29 +1430,30 @@
 
 <div class="header">
 
-    <h1>
-        ErrorKillerMole69
-    </h1>
+```
+<h1>
+    ErrorKillerMole69
+</h1>
 
-    <div class="subtitle">
-        VERSATILE ARTIST AND SENIOR DEV
-    </div>
+<div class="subtitle">
+    VERSATILE ARTIST AND SENIOR DEV
+</div>
 
 
-    <!-- =================================================
-         CORE SKILLS
-         NAD SEKCJĄ AGENTS
-    ================================================== -->
+<!-- =================================================
+     CORE SKILLS
+     NAD SEKCJĄ AGENTS
+================================================== -->
 
-    <div class="core-skills-box">
+<div class="core-skills-box">
 
-        <div class="terminal-box shineing-box">
+    <div class="terminal-box shineing-box">
 
-            <h2 class="section-title">
-                // CORE SKILLS &amp; TECH STACK
-            </h2>
+        <h2 class="section-title">
+            // CORE SKILLS &amp; TECH STACK
+        </h2>
 
-            <div class="SKILLS">
+        <div class="SKILLS">
 ```
 
 🐍 Python + Selenium:
@@ -1518,14 +1494,14 @@ singing |
 production
 
 ```
-            </div>
-
         </div>
 
     </div>
 
 </div>
+```
 
+</div>
 
 <!-- =====================================================
      MAIN CONTAINER
@@ -1533,199 +1509,197 @@ production
 
 <div class="container">
 
+```
+<!-- =================================================
+     SEKCJA 01 — AI AGENTS
+================================================== -->
 
-    <!-- =================================================
-         SEKCJA 01 — AI AGENTS
-    ================================================== -->
+<div class="terminal-box">
 
-    <div class="terminal-box">
+    <h2 class="section-title">
+        // 01. AI AGENTS SUB-ROUTINES
+    </h2>
 
-        <h2 class="section-title">
-            // 01. AI AGENTS SUB-ROUTINES
-        </h2>
+    <p>
+        Deployment room for autonomous LLM systems,
+        custom web scrapers, and data intelligence units.
+    </p>
 
-        <p>
-            Deployment room for autonomous LLM systems,
-            custom web scrapers, and data intelligence units.
-        </p>
+    <p>
+        &gt; AGENT 01:
+        Instagram &amp; Threads Automation
+    </p>
 
-        <p>
-            &gt; AGENT 01:
-            Instagram &amp; Threads Automation
-        </p>
+    <a
+        href="#"
+        class="punk-btn"
+        onclick="
+            launchSystem(
+                'output-01',
+                'Instagram Agent launched into cyberspace.'
+            );
+            return false;
+        "
+    >
+        Run Instagram Agent
+    </a>
 
-        <a
-            href="#"
-            class="punk-btn"
-            onclick="
-                launchSystem(
-                    'output-01',
-                    'Instagram Agent launched into cyberspace.'
-                );
-                return false;
-            "
-        >
-            Run Instagram Agent
-        </a>
+    <p>
+        &gt; AGENT 02: [SYSTEM LOCKED]
+    </p>
 
-        <p>
-            &gt; AGENT 02: [SYSTEM LOCKED]
-        </p>
+    <a
+        href="#"
+        class="punk-btn"
+        style="
+            opacity: 0.5;
+            cursor: not-allowed;
+        "
+        onclick="return false;"
+    >
+        Awaiting Deployment
+    </a>
 
-        <a
-            href="#"
-            class="punk-btn"
-            style="
-                opacity: 0.5;
-                cursor: not-allowed;
-            "
-            onclick="return false;"
-        >
-            Awaiting Deployment
-        </a>
+    <div
+        id="output-01"
+        class="status-output"
+    ></div>
+
+</div>
+
+
+<!-- =================================================
+     SEKCJA 02
+================================================== -->
+
+<div class="terminal-box">
+
+    <h2 class="section-title">
+        // 02. ART &amp; GRAPHICS
+    </h2>
+
+    <p>
+        Visual repository housing graphic elements,
+        cyberpunk concept designs, and creative layouts.
+    </p>
+
+    <a
+        href="https://behance.net"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="punk-btn"
+    >
+        Open Behance Portfolio
+    </a>
+
+</div>
+
+
+<!-- =================================================
+     SEKCJA 03
+================================================== -->
+
+<div class="terminal-box">
+
+    <h2 class="section-title">
+        // 03. WEB SYSTEMS &amp; APPLICATIONS
+    </h2>
+
+    <p>
+        Production links and sourcemaps for live websites,
+        custom CSS architectures, and active front-end nodes.
+    </p>
+
+    <a
+        href="https://behance.net"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="punk-btn"
+    >
+        Initialize Web Portals
+    </a>
+
+</div>
+
+
+<!-- =================================================
+     SEKCJA 04
+================================================== -->
+
+<div class="terminal-box">
+
+    <h2 class="section-title">
+        // 04. BRAIN-DUMP &amp; KNOWLEDGE BASE
+    </h2>
+
+    <p>
+        Raw system logs, developer documentation,
+        mental notes, and long-term architectural insights.
+    </p>
+
+    <textarea
+        id="cyber-notes"
+        class="cyber-textarea"
+        placeholder="Enter root logs..."
+    ></textarea>
+
+    <button
+        class="punk-btn"
+        type="button"
+        onclick="saveNotes()"
+    >
+        Commit to Cache
+    </button>
+
+    <div
+        id="notes-status"
+        class="status-output"
+    ></div>
+
+</div>
+
+
+<!-- =================================================
+     SEKCJA 05 — CYBER BROWN BEAR
+================================================== -->
+
+<div class="terminal-box">
+
+    <h2 class="section-title">
+        CYBER BROWN BEAR
+    </h2>
+
+    <div class="scene">
+
+
+        <!-- =========================================
+             BRĄZOWY MIŚ
+        ========================================== -->
 
         <div
-            id="output-01"
-            class="status-output"
-        ></div>
-
-    </div>
-
-
-    <!-- =================================================
-         SEKCJA 02
-    ================================================== -->
-
-    <div class="terminal-box">
-
-        <h2 class="section-title">
-            // 02. ART &amp; GRAPHICS
-        </h2>
-
-        <p>
-            Visual repository housing graphic elements,
-            cyberpunk concept designs, and creative layouts.
-        </p>
-
-        <a
-            href="https://behance.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="punk-btn"
+            class="bear"
+            id="cyberBear"
         >
-            Open Behance Portfolio
-        </a>
 
-    </div>
+            <div class="bear-leg-l"></div>
 
+            <div class="bear-leg-r"></div>
 
-    <!-- =================================================
-         SEKCJA 03
-    ================================================== -->
+            <div class="bear-body">
 
-    <div class="terminal-box">
+                <div class="bear-ear-l"></div>
 
-        <h2 class="section-title">
-            // 03. WEB SYSTEMS &amp; APPLICATIONS
-        </h2>
+                <div class="bear-ear-r"></div>
 
-        <p>
-            Production links and sourcemaps for live websites,
-            custom CSS architectures, and active front-end nodes.
-        </p>
+                <div class="bear-head">
 
-        <a
-            href="https://behance.net"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="punk-btn"
-        >
-            Initialize Web Portals
-        </a>
+                    <div class="bear-eye-l"></div>
 
-    </div>
+                    <div class="bear-eye-r"></div>
 
+                    <div class="bear-snout">
 
-    <!-- =================================================
-         SEKCJA 04
-    ================================================== -->
-
-    <div class="terminal-box">
-
-        <h2 class="section-title">
-            // 04. BRAIN-DUMP &amp; KNOWLEDGE BASE
-        </h2>
-
-        <p>
-            Raw system logs, developer documentation,
-            mental notes, and long-term architectural insights.
-        </p>
-
-        <textarea
-            id="cyber-notes"
-            class="cyber-textarea"
-            placeholder="Enter root logs..."
-        ></textarea>
-
-        <button
-            class="punk-btn"
-            type="button"
-            onclick="saveNotes()"
-        >
-            Commit to Cache
-        </button>
-
-        <div
-            id="notes-status"
-            class="status-output"
-        ></div>
-
-    </div>
-
-
-    <!-- =================================================
-         SEKCJA 05 — CYBER BROWN BEAR
-    ================================================== -->
-
-    <div class="terminal-box">
-
-        <h2 class="section-title">
-            CYBER BROWN BEAR
-        </h2>
-
-        <div class="scene">
-
-
-            <!-- =========================================
-                 BRĄZOWY MIŚ
-            ========================================== -->
-
-            <div
-                class="bear"
-                id="cyberBear"
-            >
-
-                <div class="bear-leg-l"></div>
-
-                <div class="bear-leg-r"></div>
-
-                <div class="bear-body">
-
-                    <div class="bear-ear-l"></div>
-
-                    <div class="bear-ear-r"></div>
-
-                    <div class="bear-head">
-
-                        <div class="bear-eye-l"></div>
-
-                        <div class="bear-eye-r"></div>
-
-                        <div class="bear-snout">
-
-                            <div class="bear-nose"></div>
-
-                        </div>
+                        <div class="bear-nose"></div>
 
                     </div>
 
@@ -1733,29 +1707,31 @@ production
 
             </div>
 
+        </div>
 
-            <!-- =========================================
-                 DRZEWO PRZED NIEDŹWIEDZIEM
-            ========================================== -->
 
-            <div class="tree">
+        <!-- =========================================
+             DRZEWO PRZED NIEDŹWIEDZIEM
+        ========================================== -->
 
-                <div class="trunk"></div>
+        <div class="tree">
 
-                <div class="foliage-1"></div>
+            <div class="trunk"></div>
 
-                <div class="foliage-2"></div>
+            <div class="foliage-1"></div>
 
-                <div class="foliage-3"></div>
+            <div class="foliage-2"></div>
 
-            </div>
+            <div class="foliage-3"></div>
 
         </div>
 
     </div>
 
 </div>
+```
 
+</div>
 
 <!-- =====================================================
      JAVASCRIPT
@@ -1911,7 +1887,6 @@ production
     }
 
 </script>
-
 
 </body>
 </html>
