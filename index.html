@@ -637,7 +637,243 @@ const bear = document.getElementById('cyberBear');
                 }, 2000);
             });
         }
+ 
     </script>
+        <!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyfrowy Niedźwiedź i Drzewo</title>
+    <style>
+        /* Stylizacja tła - cyfrowy, ciemny las */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #101e2b 0%, #050a0f 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        /* Scena cyfrowa */
+        .scene {
+            position: relative;
+            width: 600px;
+            height: 500px;
+            border-bottom: 4px solid #1a3644;
+        }
+
+        /* CYFROWY BRĄZOWY NIEDŹWIEDŹ (Styl Geometryczny/Low-Poly) */
+        .bear {
+            position: absolute;
+            bottom: 0;
+            left: 220px; /* Pozycja startowa schowana za drzewem */
+            width: 140px;
+            height: 260px;
+            z-index: 1; /* Za drzewem */
+            
+            /* ANIMACJA: nazwa czas_trwania typ_pętli nieskończenie */
+            animation: peek-a-boo 5s ease-in-out infinite;
+        }
+
+        /* Elementy anatomii misia zrobione z CSS */
+        .bear-body {
+            position: absolute;
+            bottom: 0;
+            width: 130px;
+            height: 200px;
+            background: #eef2f7;
+            border-radius: 40px 40px 10px 10px;
+            box-shadow: inset -15px 0 20px #cbd5e1;
+        }
+
+        .bear-head {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            width: 100px;
+            height: 90px;
+            background: #ffffff;
+            border-radius: 50%;
+            box-shadow: inset -5px -5px 15px #cbd5e1;
+        }
+
+        .bear-ear-l, .bear-ear-r {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #eef2f7;
+            border-radius: 50%;
+            top: 10px;
+        }
+        .bear-ear-l { left: 10px; }
+        .bear-ear-r { right: 10px; }
+
+        .bear-eye-l, .bear-eye-r {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #0f172a;
+            border-radius: 50%;
+            top: 40px;
+        }
+        .bear-eye-l { left: 30px; }
+        .bear-eye-r { right: 30px; }
+
+        .bear-snout {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 40%;
+            bottom: 15px;
+            left: 30px;
+        }
+
+        .bear-nose {
+            position: absolute;
+            width: 14px;
+            height: 10px;
+            background: #0f172a;
+            border-radius: 50%;
+            top: 5px;
+            left: 13px;
+        }
+
+        /* Łapy stojącego niedźwiedzia */
+        .bear-leg-l, .bear-leg-r {
+            position: absolute;
+            bottom: 0;
+            width: 35px;
+            height: 60px;
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        .bear-leg-l { left: 15px; }
+        .bear-leg-r { right: 15px; }
+
+
+        /* CYFROWE DRZEWO */
+        .tree {
+            position: absolute;
+            bottom: 0;
+            left: 200px; /* Wyśrodkowane przed niedźwiedziem */
+            width: 160px;
+            height: 400px;
+            z-index: 2; /* Przed niedźwiedziem */
+            pointer-events: none;
+        }
+
+        .trunk {
+            position: absolute;
+            bottom: 0;
+            left: 60px;
+            width: 40px;
+            height: 200px;
+            background: #2e1c0c;
+            border-radius: 5px 5px 0 0;
+        }
+
+        /* Cyfrowa korona drzewa (warstwy geometryczne) */
+        .foliage-1, .foliage-2, .foliage-3 {
+            position: absolute;
+            border-left: 80px solid transparent;
+            border-right: 80px solid transparent;
+            width: 0;
+            height: 0;
+        }
+
+        .foliage-1 {
+            bottom: 120px;
+            border-bottom: 140px solid #0f5132;
+        }
+
+        .foliage-2 {
+            bottom: 200px;
+            border-bottom: 120px solid #146c43;
+            transform: scale(0.9);
+        }
+
+        .foliage-3 {
+            bottom: 270px;
+            border-bottom: 100px solid #198754;
+            transform: scale(0.8);
+        }
+
+
+        /* KLUCZOWE KLATKI ANIMACJI (Wychylanie i chowanie całego ciała) */
+        @keyframes peek-a-boo {
+            0% {
+                /* Całkowicie schowany za pniem (pozycja startowa) */
+                transform: translateX(0) rotate(0deg);
+            }
+            20% {
+                /* Płynne wysunięcie całego stojącego ciała w lewo */
+                transform: translateX(-150px) rotate(-3deg);
+            }
+            45% {
+                /* Miś stoi wysunięty i patrzy */
+                transform: translateX(-150px) rotate(0deg);
+            }
+            65% {
+                /* Powrót za drzewo */
+                transform: translateX(0) rotate(0deg);
+            }
+            100% {
+                /* Odpoczynek/pauza za drzewem przed kolejnym cyklem */
+                transform: translateX(0) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <!-- Niedźwiedź z pełną anatomią (ciało, nogi, głowa) -->
+        <div class="bear" id="cyberBear">
+            <div class="bear-leg-l"></div>
+            <div class="bear-leg-r"></div>
+            <div class="bear-body">
+                <div class="bear-ear-l"></div>
+                <div class="bear-ear-r"></div>
+                <div class="bear-head">
+                    <div class="bear-eye-l"></div>
+                    <div class="bear-eye-r"></div>
+                    <div class="bear-snout">
+                        <div class="bear-nose"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drzewo zasłaniające postać -->
+        <div class="tree">
+            <div class="trunk"></div>
+            <div class="foliage-1"></div>
+            <div class="foliage-2"></div>
+            <div class="foliage-3"></div>
+        </div>
+    </div>
+
+    <script>
+        // Opcjonalny skrypt, jeśli chcesz w przyszłości sterować nim kliknięciem
+        const bear = document.getElementById('cyberBear');
+        
+        // Przykład: przyspieszenie animacji po kliknięciu na scenę
+        bear.addEventListener('click', () => {
+            bear.style.animationDuration = '2s';
+            setTimeout(() => {
+                bear.style.animationDuration = '5s';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
+
 </body>
 </html>
 
