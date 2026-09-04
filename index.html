@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,16 +22,13 @@
         --tree-light: #39ff14;
     }
 
-
     * {
         box-sizing: border-box;
     }
 
-
     html {
         min-height: 100%;
     }
-
 
     body {
         background:
@@ -79,8 +75,8 @@
 
 
     /* =====================================================
-       BOCZNE DRZEWA
-       STAŁE ŚWIATŁO - BEZ PULSOWANIA
+       BOCZNE CYFROWE DRZEWA
+       STAŁE ŚWIATŁO — BEZ PULSOWANIA
     ===================================================== */
 
     .neon-tree {
@@ -91,169 +87,76 @@
         transform:
             translateY(-50%);
 
-        width: 150px;
-        height: 430px;
+        width: 120px;
 
-        z-index: 1;
+        font-family:
+            'Courier New',
+            Courier,
+            monospace;
 
-        pointer-events: none;
+        font-size:
+            1.45rem;
 
-        user-select: none;
+        font-weight:
+            bold;
+
+        line-height:
+            1.05;
+
+        white-space:
+            pre;
+
+        text-align:
+            center;
+
+        user-select:
+            none;
+
+        pointer-events:
+            none;
+
+        opacity:
+            0.95;
+
+        z-index:
+            1;
+
+        /*
+         * STAŁA JASNOŚĆ.
+         * Brak animation i brak zmian opacity.
+         */
+        text-shadow:
+            0 0 5px #39ff14,
+            0 0 10px #39ff14,
+            0 0 20px #39ff14,
+            0 0 35px rgba(57, 255, 20, 0.9),
+            0 0 60px rgba(57, 255, 20, 0.7);
 
         filter:
-            drop-shadow(
-                0 0 7px
-                rgba(57, 255, 20, 0.75)
-            )
-            drop-shadow(
-                0 0 18px
-                rgba(57, 255, 20, 0.55)
-            );
-
-        opacity: 0.95;
+            drop-shadow(0 0 7px #39ff14)
+            drop-shadow(0 0 15px rgba(57, 255, 20, 0.9))
+            drop-shadow(0 0 30px rgba(57, 255, 20, 0.55));
     }
-
 
     .tree-left {
-        left: 1%;
+        left: 2%;
     }
-
 
     .tree-right {
-        right: 1%;
+        right: 2%;
     }
 
 
-    /* =====================================================
-       BRĄZOWY PIEŃ BOCZNYCH DRZEW
-    ===================================================== */
+    /*
+     * BRĄZOWE PNIE BOCZNYCH DRZEW
+     */
+    .neon-tree .side-tree-trunk {
+        color: #8b5a2b;
 
-    .side-trunk {
-        position: absolute;
-
-        bottom: 0;
-        left: 55px;
-
-        width: 40px;
-        height: 205px;
-
-        background:
-            linear-gradient(
-                90deg,
-                #241406,
-                #43240d,
-                #1c1006
-            );
-
-        border-radius:
-            5px 5px 0 0;
-
-        box-shadow:
-            inset -8px 0 10px #160b04,
-            inset 7px 0 9px rgba(210, 150, 90, 0.15),
-            0 0 8px rgba(139, 90, 43, 0.35);
-    }
-
-
-    /* =====================================================
-       ZIELONA KORONA - STAŁA POŚWIATA
-    ===================================================== */
-
-    .side-foliage-1,
-    .side-foliage-2,
-    .side-foliage-3 {
-        position: absolute;
-
-        left: 0;
-
-        width: 0;
-        height: 0;
-
-        border-left:
-            75px solid transparent;
-
-        border-right:
-            75px solid transparent;
-
-        border-bottom-style: solid;
-
-        filter:
-            drop-shadow(
-                0 0 6px
-                rgba(57, 255, 20, 0.75)
-            )
-            drop-shadow(
-                0 0 15px
-                rgba(57, 255, 20, 0.45)
-            );
-    }
-
-
-    .side-foliage-1 {
-        bottom: 115px;
-
-        border-bottom:
-            145px solid #0f5132;
-    }
-
-
-    .side-foliage-2 {
-        bottom: 200px;
-
-        border-left-width:
-            67px;
-
-        border-right-width:
-            67px;
-
-        border-bottom:
-            120px solid #146c43;
-
-        left: 8px;
-    }
-
-
-    .side-foliage-3 {
-        bottom: 275px;
-
-        border-left-width:
-            57px;
-
-        border-right-width:
-            57px;
-
-        border-bottom:
-            105px solid #198754;
-
-        left: 18px;
-    }
-
-
-    /* =====================================================
-       DELIKATNE ŚWIATŁO NA ZIELENI
-       NIE ANIMOWANE
-    ===================================================== */
-
-    .side-foliage-1::after,
-    .side-foliage-2::after,
-    .side-foliage-3::after {
-        content: "";
-
-        position: absolute;
-
-        left: -2px;
-        top: 0;
-
-        width: 4px;
-        height: 100%;
-
-        background:
-            rgba(57, 255, 20, 0.35);
-
-        filter:
-            blur(4px);
-
-        pointer-events: none;
+        text-shadow:
+            0 0 3px #8b5a2b,
+            0 0 7px rgba(139, 90, 43, 0.65),
+            0 0 14px rgba(139, 90, 43, 0.35);
     }
 
 
@@ -295,7 +198,6 @@
         overflow: hidden;
     }
 
-
     .water-waves {
         color:
             var(--neon-blue);
@@ -315,7 +217,6 @@
         animation:
             wave-move 4s linear infinite;
     }
-
 
     @keyframes wave-move {
 
@@ -349,7 +250,6 @@
             duck-lifecycle 7s linear infinite;
     }
 
-
     .duck-body {
         position: absolute;
 
@@ -368,7 +268,6 @@
             0 0 8px #facc15;
     }
 
-
     .duck-head {
         position: absolute;
 
@@ -385,7 +284,6 @@
         left: -5px;
     }
 
-
     .duck-beak {
         position: absolute;
 
@@ -401,7 +299,6 @@
         top: 4px;
         left: -6px;
     }
-
 
     .duck-wing {
         position: absolute;
@@ -425,7 +322,6 @@
             duck-wing-flap
             0.2s linear infinite alternate;
     }
-
 
     @keyframes duck-lifecycle {
 
@@ -496,7 +392,6 @@
         }
     }
 
-
     @keyframes duck-wing-flap {
 
         0% {
@@ -533,7 +428,6 @@
         align-items: center;
     }
 
-
     h1 {
         color: #fff;
 
@@ -552,7 +446,6 @@
         margin:
             0 0 5px 0;
     }
-
 
     .subtitle {
         color:
@@ -645,7 +538,6 @@
             5px;
     }
 
-
     .shineing-box {
         border:
             2px dashed var(--neon-green);
@@ -666,7 +558,6 @@
             inset 0 0 20px
             rgba(57, 255, 20, 0.04);
     }
-
 
     .section-title {
         color:
@@ -740,7 +631,6 @@
         display:
             inline-block;
     }
-
 
     .punk-btn:hover {
         background-color:
@@ -833,7 +723,6 @@
             0 0 5px
             rgba(57, 255, 20, 0.2);
     }
-
 
     .cyber-textarea:focus {
         box-shadow:
@@ -940,7 +829,6 @@
             );
     }
 
-
     .bear-body {
         position:
             absolute;
@@ -971,7 +859,6 @@
             0 0 15px
             rgba(139, 90, 43, 0.55);
     }
-
 
     .bear-head {
         position:
@@ -1007,7 +894,6 @@
             rgba(154, 101, 51, 0.45);
     }
 
-
     .bear-ear-l,
     .bear-ear-r {
         position:
@@ -1034,18 +920,15 @@
             rgba(139, 90, 43, 0.6);
     }
 
-
     .bear-ear-l {
         left:
             10px;
     }
 
-
     .bear-ear-r {
         right:
             10px;
     }
-
 
     .bear-eye-l,
     .bear-eye-r {
@@ -1072,18 +955,15 @@
             rgba(255,255,255,0.2);
     }
 
-
     .bear-eye-l {
         left:
             30px;
     }
 
-
     .bear-eye-r {
         right:
             30px;
     }
-
 
     .bear-snout {
         position:
@@ -1112,7 +992,6 @@
             rgba(92, 58, 30, 0.35);
     }
 
-
     .bear-nose {
         position:
             absolute;
@@ -1135,7 +1014,6 @@
         left:
             13px;
     }
-
 
     .bear-leg-l,
     .bear-leg-r {
@@ -1161,12 +1039,10 @@
             inset -5px 0 8px #4d2f17;
     }
 
-
     .bear-leg-l {
         left:
             15px;
     }
-
 
     .bear-leg-r {
         right:
@@ -1207,7 +1083,6 @@
             );
     }
 
-
     .trunk {
         position:
             absolute;
@@ -1240,7 +1115,6 @@
             rgba(139, 90, 43, 0.2);
     }
 
-
     .foliage-1,
     .foliage-2,
     .foliage-3 {
@@ -1260,7 +1134,6 @@
             0;
     }
 
-
     .foliage-1 {
         bottom:
             120px;
@@ -1275,7 +1148,6 @@
             );
     }
 
-
     .foliage-2 {
         bottom:
             200px;
@@ -1286,7 +1158,6 @@
         transform:
             scale(0.9);
     }
-
 
     .foliage-3 {
         bottom:
@@ -1360,7 +1231,6 @@
         }
     }
 
-
     @media (max-width: 900px) {
 
         .neon-tree {
@@ -1368,7 +1238,6 @@
                 0.15;
         }
     }
-
 
     @media (max-width: 700px) {
 
@@ -1476,40 +1345,69 @@
 </style>
 </head>
 
-
 <body>
 
 
 <!-- =====================================================
-     LEWE DRZEWO
+     LEWE CYFROWE DRZEWO
 ====================================================== -->
 
 <div class="neon-tree tree-left" aria-hidden="true">
 
-    <div class="side-trunk"></div>
-
-    <div class="side-foliage-1"></div>
-
-    <div class="side-foliage-2"></div>
-
-    <div class="side-foliage-3"></div>
+    <span>
+        /\
+       /##\
+      /####\
+     /######\
+    /########\
+    /##########
+    /############
+    /##############
+    ||||
+    ||||
+    ||||
+    ||||
+    </span><span class="side-tree-trunk">/##
+/####
+/######
+/########
+/##########
+||||
+||||
+||||
+||||</span>
 
 </div>
 
 
 <!-- =====================================================
-     PRAWE DRZEWO
+     PRAWE CYFROWE DRZEWO
 ====================================================== -->
 
 <div class="neon-tree tree-right" aria-hidden="true">
 
-    <div class="side-trunk"></div>
-
-    <div class="side-foliage-1"></div>
-
-    <div class="side-foliage-2"></div>
-
-    <div class="side-foliage-3"></div>
+    <span>
+        /\
+       /##\
+      /####\
+     /######\
+    /########\
+    /##########
+    /############
+    /##############
+    ||||
+    ||||
+    ||||
+    ||||
+    </span><span class="side-tree-trunk">/##
+/####
+/######
+/########
+/##########
+||||
+||||
+||||
+||||</span>
 
 </div>
 
@@ -1521,11 +1419,8 @@
 <div class="cyber-duck" aria-hidden="true">
 
     <div class="duck-body"></div>
-
     <div class="duck-head"></div>
-
     <div class="duck-beak"></div>
-
     <div class="duck-wing"></div>
 
 </div>
@@ -1855,7 +1750,6 @@ production
 ====================================================== -->
 
 <script>
-
 
     /* =================================================
        AI AGENT SYSTEM
