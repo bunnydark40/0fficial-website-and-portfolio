@@ -7,6 +7,7 @@
     <title>ErrorKillerMole69 Portfolio</title>
 
 <style>
+
     :root {
         --bg-gradient-start: #2b0414;
         --bg-gradient-end: #12021c;
@@ -22,13 +23,16 @@
         --tree-light: #39ff14;
     }
 
+
     * {
         box-sizing: border-box;
     }
 
+
     html {
         min-height: 100%;
     }
+
 
     body {
         background:
@@ -75,8 +79,8 @@
 
 
     /* =====================================================
-       BOCZNE CYFROWE DRZEWA
-       STAŁE ŚWIATŁO — BEZ PULSOWANIA
+       BOCZNE DRZEWA
+       STAŁE ŚWIATŁO - BEZ PULSOWANIA
     ===================================================== */
 
     .neon-tree {
@@ -87,66 +91,169 @@
         transform:
             translateY(-50%);
 
-        width: 120px;
+        width: 150px;
+        height: 430px;
 
-        color:
-            var(--tree-light);
+        z-index: 1;
 
-        font-family:
-            'Courier New',
-            Courier,
-            monospace;
+        pointer-events: none;
 
-        font-size:
-            1.45rem;
-
-        font-weight:
-            bold;
-
-        line-height:
-            1.05;
-
-        white-space:
-            pre;
-
-        text-align:
-            center;
-
-        user-select:
-            none;
-
-        pointer-events:
-            none;
-
-        opacity:
-            0.95;
-
-        z-index:
-            1;
-
-        /* Stała jasność */
-        text-shadow:
-            0 0 5px #39ff14,
-            0 0 10px #39ff14,
-            0 0 20px #39ff14,
-            0 0 35px rgba(57, 255, 20, 0.9),
-            0 0 60px rgba(57, 255, 20, 0.7);
+        user-select: none;
 
         filter:
-            drop-shadow(0 0 7px #39ff14)
-            drop-shadow(0 0 15px rgba(57, 255, 20, 0.9))
-            drop-shadow(0 0 30px rgba(57, 255, 20, 0.55));
+            drop-shadow(
+                0 0 7px
+                rgba(57, 255, 20, 0.75)
+            )
+            drop-shadow(
+                0 0 18px
+                rgba(57, 255, 20, 0.55)
+            );
 
-        /* BRAK ANIMACJI / BRAK PULSOWANIA */
-        animation: none;
+        opacity: 0.95;
     }
+
 
     .tree-left {
-        left: 2%;
+        left: 1%;
     }
 
+
     .tree-right {
-        right: 2%;
+        right: 1%;
+    }
+
+
+    /* =====================================================
+       BRĄZOWY PIEŃ BOCZNYCH DRZEW
+    ===================================================== */
+
+    .side-trunk {
+        position: absolute;
+
+        bottom: 0;
+        left: 55px;
+
+        width: 40px;
+        height: 205px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #241406,
+                #43240d,
+                #1c1006
+            );
+
+        border-radius:
+            5px 5px 0 0;
+
+        box-shadow:
+            inset -8px 0 10px #160b04,
+            inset 7px 0 9px rgba(210, 150, 90, 0.15),
+            0 0 8px rgba(139, 90, 43, 0.35);
+    }
+
+
+    /* =====================================================
+       ZIELONA KORONA - STAŁA POŚWIATA
+    ===================================================== */
+
+    .side-foliage-1,
+    .side-foliage-2,
+    .side-foliage-3 {
+        position: absolute;
+
+        left: 0;
+
+        width: 0;
+        height: 0;
+
+        border-left:
+            75px solid transparent;
+
+        border-right:
+            75px solid transparent;
+
+        border-bottom-style: solid;
+
+        filter:
+            drop-shadow(
+                0 0 6px
+                rgba(57, 255, 20, 0.75)
+            )
+            drop-shadow(
+                0 0 15px
+                rgba(57, 255, 20, 0.45)
+            );
+    }
+
+
+    .side-foliage-1 {
+        bottom: 115px;
+
+        border-bottom:
+            145px solid #0f5132;
+    }
+
+
+    .side-foliage-2 {
+        bottom: 200px;
+
+        border-left-width:
+            67px;
+
+        border-right-width:
+            67px;
+
+        border-bottom:
+            120px solid #146c43;
+
+        left: 8px;
+    }
+
+
+    .side-foliage-3 {
+        bottom: 275px;
+
+        border-left-width:
+            57px;
+
+        border-right-width:
+            57px;
+
+        border-bottom:
+            105px solid #198754;
+
+        left: 18px;
+    }
+
+
+    /* =====================================================
+       DELIKATNE ŚWIATŁO NA ZIELENI
+       NIE ANIMOWANE
+    ===================================================== */
+
+    .side-foliage-1::after,
+    .side-foliage-2::after,
+    .side-foliage-3::after {
+        content: "";
+
+        position: absolute;
+
+        left: -2px;
+        top: 0;
+
+        width: 4px;
+        height: 100%;
+
+        background:
+            rgba(57, 255, 20, 0.35);
+
+        filter:
+            blur(4px);
+
+        pointer-events: none;
     }
 
 
@@ -188,6 +295,7 @@
         overflow: hidden;
     }
 
+
     .water-waves {
         color:
             var(--neon-blue);
@@ -207,6 +315,7 @@
         animation:
             wave-move 4s linear infinite;
     }
+
 
     @keyframes wave-move {
 
@@ -240,6 +349,7 @@
             duck-lifecycle 7s linear infinite;
     }
 
+
     .duck-body {
         position: absolute;
 
@@ -258,6 +368,7 @@
             0 0 8px #facc15;
     }
 
+
     .duck-head {
         position: absolute;
 
@@ -274,6 +385,7 @@
         left: -5px;
     }
 
+
     .duck-beak {
         position: absolute;
 
@@ -289,6 +401,7 @@
         top: 4px;
         left: -6px;
     }
+
 
     .duck-wing {
         position: absolute;
@@ -312,6 +425,7 @@
             duck-wing-flap
             0.2s linear infinite alternate;
     }
+
 
     @keyframes duck-lifecycle {
 
@@ -382,6 +496,7 @@
         }
     }
 
+
     @keyframes duck-wing-flap {
 
         0% {
@@ -418,6 +533,7 @@
         align-items: center;
     }
 
+
     h1 {
         color: #fff;
 
@@ -437,6 +553,7 @@
             0 0 5px 0;
     }
 
+
     .subtitle {
         color:
             var(--neon-green);
@@ -454,7 +571,6 @@
 
     /* =====================================================
        CORE SKILLS
-       RAMKA NAD SEKCJĄ AGENTS
     ===================================================== */
 
     .core-skills-box {
@@ -529,6 +645,7 @@
             5px;
     }
 
+
     .shineing-box {
         border:
             2px dashed var(--neon-green);
@@ -549,6 +666,7 @@
             inset 0 0 20px
             rgba(57, 255, 20, 0.04);
     }
+
 
     .section-title {
         color:
@@ -622,6 +740,7 @@
         display:
             inline-block;
     }
+
 
     .punk-btn:hover {
         background-color:
@@ -714,6 +833,7 @@
             0 0 5px
             rgba(57, 255, 20, 0.2);
     }
+
 
     .cyber-textarea:focus {
         box-shadow:
@@ -820,6 +940,7 @@
             );
     }
 
+
     .bear-body {
         position:
             absolute;
@@ -850,6 +971,7 @@
             0 0 15px
             rgba(139, 90, 43, 0.55);
     }
+
 
     .bear-head {
         position:
@@ -885,6 +1007,7 @@
             rgba(154, 101, 51, 0.45);
     }
 
+
     .bear-ear-l,
     .bear-ear-r {
         position:
@@ -911,15 +1034,18 @@
             rgba(139, 90, 43, 0.6);
     }
 
+
     .bear-ear-l {
         left:
             10px;
     }
 
+
     .bear-ear-r {
         right:
             10px;
     }
+
 
     .bear-eye-l,
     .bear-eye-r {
@@ -946,15 +1072,18 @@
             rgba(255,255,255,0.2);
     }
 
+
     .bear-eye-l {
         left:
             30px;
     }
 
+
     .bear-eye-r {
         right:
             30px;
     }
+
 
     .bear-snout {
         position:
@@ -983,6 +1112,7 @@
             rgba(92, 58, 30, 0.35);
     }
 
+
     .bear-nose {
         position:
             absolute;
@@ -1005,6 +1135,7 @@
         left:
             13px;
     }
+
 
     .bear-leg-l,
     .bear-leg-r {
@@ -1030,10 +1161,12 @@
             inset -5px 0 8px #4d2f17;
     }
 
+
     .bear-leg-l {
         left:
             15px;
     }
+
 
     .bear-leg-r {
         right:
@@ -1074,6 +1207,7 @@
             );
     }
 
+
     .trunk {
         position:
             absolute;
@@ -1106,6 +1240,7 @@
             rgba(139, 90, 43, 0.2);
     }
 
+
     .foliage-1,
     .foliage-2,
     .foliage-3 {
@@ -1125,6 +1260,7 @@
             0;
     }
 
+
     .foliage-1 {
         bottom:
             120px;
@@ -1139,6 +1275,7 @@
             );
     }
 
+
     .foliage-2 {
         bottom:
             200px;
@@ -1149,6 +1286,7 @@
         transform:
             scale(0.9);
     }
+
 
     .foliage-3 {
         bottom:
@@ -1222,6 +1360,7 @@
         }
     }
 
+
     @media (max-width: 900px) {
 
         .neon-tree {
@@ -1229,6 +1368,7 @@
                 0.15;
         }
     }
+
 
     @media (max-width: 700px) {
 
@@ -1332,67 +1472,47 @@
             }
         }
     }
-</style>
 
+</style>
 </head>
+
 
 <body>
 
+
 <!-- =====================================================
-     LEWE CYFROWE DRZEWO
+     LEWE DRZEWO
 ====================================================== -->
 
 <div class="neon-tree tree-left" aria-hidden="true">
-    /\
-   /##\
-  /####\
- /######\
-/########\
-/##########
-/############
-/##############
-||||
-||||
-||||
-||||
-/##
-/####
-/######
-/########
-/##########
-||||
-||||
-||||
-||||
+
+    <div class="side-trunk"></div>
+
+    <div class="side-foliage-1"></div>
+
+    <div class="side-foliage-2"></div>
+
+    <div class="side-foliage-3"></div>
+
 </div>
 
+
 <!-- =====================================================
-     PRAWE CYFROWE DRZEWO
+     PRAWE DRZEWO
 ====================================================== -->
 
 <div class="neon-tree tree-right" aria-hidden="true">
-    /\
-   /##\
-  /####\
- /######\
-/########\
-/##########
-/############
-/##############
-||||
-||||
-||||
-||||
-/##
-/####
-/######
-/########
-/##########
-||||
-||||
-||||
-||||
+
+    <div class="side-trunk"></div>
+
+    <div class="side-foliage-1"></div>
+
+    <div class="side-foliage-2"></div>
+
+    <div class="side-foliage-3"></div>
+
 </div>
+
 
 <!-- =====================================================
      CYBER DUCK
@@ -1400,14 +1520,16 @@
 
 <div class="cyber-duck" aria-hidden="true">
 
-```
-<div class="duck-body"></div>
-<div class="duck-head"></div>
-<div class="duck-beak"></div>
-<div class="duck-wing"></div>
-```
+    <div class="duck-body"></div>
+
+    <div class="duck-head"></div>
+
+    <div class="duck-beak"></div>
+
+    <div class="duck-wing"></div>
 
 </div>
+
 
 <!-- =====================================================
      CYBER WATER
@@ -1415,14 +1537,13 @@
 
 <div class="cyber-water">
 
-```
-<div class="water-waves">
-    ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
-    ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
-</div>
-```
+    <div class="water-waves">
+        ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
+        ~~~~~~~~ ~~~~~~~~ ~~~~~~~~ ~~~~~~~~
+    </div>
 
 </div>
+
 
 <!-- =====================================================
      HEADER
@@ -1430,31 +1551,28 @@
 
 <div class="header">
 
-```
-<h1>
-    ErrorKillerMole69
-</h1>
+    <h1>
+        ErrorKillerMole69
+    </h1>
 
-<div class="subtitle">
-    VERSATILE ARTIST AND SENIOR DEV
-</div>
+    <div class="subtitle">
+        VERSATILE ARTIST AND SENIOR DEV
+    </div>
 
 
-<!-- =================================================
-     CORE SKILLS
-     NAD SEKCJĄ AGENTS
-================================================== -->
+    <!-- =================================================
+         CORE SKILLS
+    ================================================== -->
 
-<div class="core-skills-box">
+    <div class="core-skills-box">
 
-    <div class="terminal-box shineing-box">
+        <div class="terminal-box shineing-box">
 
-        <h2 class="section-title">
-            // CORE SKILLS &amp; TECH STACK
-        </h2>
+            <h2 class="section-title">
+                // CORE SKILLS &amp; TECH STACK
+            </h2>
 
-        <div class="SKILLS">
-```
+            <div class="SKILLS">
 
 🐍 Python + Selenium:
 💻 (Sieć/Browser) | 🤖 (Automation)
@@ -1493,15 +1611,14 @@ create websites.
 singing |
 production
 
-```
+            </div>
+
         </div>
 
     </div>
 
 </div>
-```
 
-</div>
 
 <!-- =====================================================
      MAIN CONTAINER
@@ -1509,197 +1626,199 @@ production
 
 <div class="container">
 
-```
-<!-- =================================================
-     SEKCJA 01 — AI AGENTS
-================================================== -->
 
-<div class="terminal-box">
+    <!-- =================================================
+         SEKCJA 01 — AI AGENTS
+    ================================================== -->
 
-    <h2 class="section-title">
-        // 01. AI AGENTS SUB-ROUTINES
-    </h2>
+    <div class="terminal-box">
 
-    <p>
-        Deployment room for autonomous LLM systems,
-        custom web scrapers, and data intelligence units.
-    </p>
+        <h2 class="section-title">
+            // 01. AI AGENTS SUB-ROUTINES
+        </h2>
 
-    <p>
-        &gt; AGENT 01:
-        Instagram &amp; Threads Automation
-    </p>
+        <p>
+            Deployment room for autonomous LLM systems,
+            custom web scrapers, and data intelligence units.
+        </p>
 
-    <a
-        href="#"
-        class="punk-btn"
-        onclick="
-            launchSystem(
-                'output-01',
-                'Instagram Agent launched into cyberspace.'
-            );
-            return false;
-        "
-    >
-        Run Instagram Agent
-    </a>
+        <p>
+            &gt; AGENT 01:
+            Instagram &amp; Threads Automation
+        </p>
 
-    <p>
-        &gt; AGENT 02: [SYSTEM LOCKED]
-    </p>
+        <a
+            href="#"
+            class="punk-btn"
+            onclick="
+                launchSystem(
+                    'output-01',
+                    'Instagram Agent launched into cyberspace.'
+                );
+                return false;
+            "
+        >
+            Run Instagram Agent
+        </a>
 
-    <a
-        href="#"
-        class="punk-btn"
-        style="
-            opacity: 0.5;
-            cursor: not-allowed;
-        "
-        onclick="return false;"
-    >
-        Awaiting Deployment
-    </a>
+        <p>
+            &gt; AGENT 02: [SYSTEM LOCKED]
+        </p>
 
-    <div
-        id="output-01"
-        class="status-output"
-    ></div>
-
-</div>
-
-
-<!-- =================================================
-     SEKCJA 02
-================================================== -->
-
-<div class="terminal-box">
-
-    <h2 class="section-title">
-        // 02. ART &amp; GRAPHICS
-    </h2>
-
-    <p>
-        Visual repository housing graphic elements,
-        cyberpunk concept designs, and creative layouts.
-    </p>
-
-    <a
-        href="https://behance.net"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="punk-btn"
-    >
-        Open Behance Portfolio
-    </a>
-
-</div>
-
-
-<!-- =================================================
-     SEKCJA 03
-================================================== -->
-
-<div class="terminal-box">
-
-    <h2 class="section-title">
-        // 03. WEB SYSTEMS &amp; APPLICATIONS
-    </h2>
-
-    <p>
-        Production links and sourcemaps for live websites,
-        custom CSS architectures, and active front-end nodes.
-    </p>
-
-    <a
-        href="https://behance.net"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="punk-btn"
-    >
-        Initialize Web Portals
-    </a>
-
-</div>
-
-
-<!-- =================================================
-     SEKCJA 04
-================================================== -->
-
-<div class="terminal-box">
-
-    <h2 class="section-title">
-        // 04. BRAIN-DUMP &amp; KNOWLEDGE BASE
-    </h2>
-
-    <p>
-        Raw system logs, developer documentation,
-        mental notes, and long-term architectural insights.
-    </p>
-
-    <textarea
-        id="cyber-notes"
-        class="cyber-textarea"
-        placeholder="Enter root logs..."
-    ></textarea>
-
-    <button
-        class="punk-btn"
-        type="button"
-        onclick="saveNotes()"
-    >
-        Commit to Cache
-    </button>
-
-    <div
-        id="notes-status"
-        class="status-output"
-    ></div>
-
-</div>
-
-
-<!-- =================================================
-     SEKCJA 05 — CYBER BROWN BEAR
-================================================== -->
-
-<div class="terminal-box">
-
-    <h2 class="section-title">
-        CYBER BROWN BEAR
-    </h2>
-
-    <div class="scene">
-
-
-        <!-- =========================================
-             BRĄZOWY MIŚ
-        ========================================== -->
+        <a
+            href="#"
+            class="punk-btn"
+            style="
+                opacity: 0.5;
+                cursor: not-allowed;
+            "
+            onclick="return false;"
+        >
+            Awaiting Deployment
+        </a>
 
         <div
-            class="bear"
-            id="cyberBear"
+            id="output-01"
+            class="status-output"
+        ></div>
+
+    </div>
+
+
+    <!-- =================================================
+         SEKCJA 02
+    ================================================== -->
+
+    <div class="terminal-box">
+
+        <h2 class="section-title">
+            // 02. ART &amp; GRAPHICS
+        </h2>
+
+        <p>
+            Visual repository housing graphic elements,
+            cyberpunk concept designs, and creative layouts.
+        </p>
+
+        <a
+            href="https://behance.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="punk-btn"
         >
+            Open Behance Portfolio
+        </a>
 
-            <div class="bear-leg-l"></div>
+    </div>
 
-            <div class="bear-leg-r"></div>
 
-            <div class="bear-body">
+    <!-- =================================================
+         SEKCJA 03
+    ================================================== -->
 
-                <div class="bear-ear-l"></div>
+    <div class="terminal-box">
 
-                <div class="bear-ear-r"></div>
+        <h2 class="section-title">
+            // 03. WEB SYSTEMS &amp; APPLICATIONS
+        </h2>
 
-                <div class="bear-head">
+        <p>
+            Production links and sourcemaps for live websites,
+            custom CSS architectures, and active front-end nodes.
+        </p>
 
-                    <div class="bear-eye-l"></div>
+        <a
+            href="https://behance.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="punk-btn"
+        >
+            Initialize Web Portals
+        </a>
 
-                    <div class="bear-eye-r"></div>
+    </div>
 
-                    <div class="bear-snout">
 
-                        <div class="bear-nose"></div>
+    <!-- =================================================
+         SEKCJA 04
+    ================================================== -->
+
+    <div class="terminal-box">
+
+        <h2 class="section-title">
+            // 04. BRAIN-DUMP &amp; KNOWLEDGE BASE
+        </h2>
+
+        <p>
+            Raw system logs, developer documentation,
+            mental notes, and long-term architectural insights.
+        </p>
+
+        <textarea
+            id="cyber-notes"
+            class="cyber-textarea"
+            placeholder="Enter root logs..."
+        ></textarea>
+
+        <button
+            class="punk-btn"
+            type="button"
+            onclick="saveNotes()"
+        >
+            Commit to Cache
+        </button>
+
+        <div
+            id="notes-status"
+            class="status-output"
+        ></div>
+
+    </div>
+
+
+    <!-- =================================================
+         SEKCJA 05 — CYBER BROWN BEAR
+    ================================================== -->
+
+    <div class="terminal-box">
+
+        <h2 class="section-title">
+            CYBER BROWN BEAR
+        </h2>
+
+        <div class="scene">
+
+
+            <!-- =========================================
+                 BRĄZOWY MIŚ
+            ========================================== -->
+
+            <div
+                class="bear"
+                id="cyberBear"
+            >
+
+                <div class="bear-leg-l"></div>
+
+                <div class="bear-leg-r"></div>
+
+                <div class="bear-body">
+
+                    <div class="bear-ear-l"></div>
+
+                    <div class="bear-ear-r"></div>
+
+                    <div class="bear-head">
+
+                        <div class="bear-eye-l"></div>
+
+                        <div class="bear-eye-r"></div>
+
+                        <div class="bear-snout">
+
+                            <div class="bear-nose"></div>
+
+                        </div>
 
                     </div>
 
@@ -1707,37 +1826,36 @@ production
 
             </div>
 
-        </div>
 
+            <!-- =========================================
+                 DRZEWO PRZED NIEDŹWIEDZIEM
+            ========================================== -->
 
-        <!-- =========================================
-             DRZEWO PRZED NIEDŹWIEDZIEM
-        ========================================== -->
+            <div class="tree">
 
-        <div class="tree">
+                <div class="trunk"></div>
 
-            <div class="trunk"></div>
+                <div class="foliage-1"></div>
 
-            <div class="foliage-1"></div>
+                <div class="foliage-2"></div>
 
-            <div class="foliage-2"></div>
+                <div class="foliage-3"></div>
 
-            <div class="foliage-3"></div>
+            </div>
 
         </div>
 
     </div>
 
 </div>
-```
 
-</div>
 
 <!-- =====================================================
      JAVASCRIPT
 ====================================================== -->
 
 <script>
+
 
     /* =================================================
        AI AGENT SYSTEM
@@ -1887,6 +2005,7 @@ production
     }
 
 </script>
+
 
 </body>
 </html>
